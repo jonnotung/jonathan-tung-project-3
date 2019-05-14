@@ -1,0 +1,53 @@
+----------------------------------------------------------
+---------------Toronto ipsum generator--------------------
+----------------------------------------------------------
+Description: Generates filler text, but it's all Toronto related words
+
+
+----------------------------------------------------------
+---------------Minimum viable product:--------------------
+----------------------------------------------------------
+User selects number of paragraphs: 1 - 10 (slider?)
+User selects size of paragraphs: small - med - large (slider)
+User hits generate 
+If # paragraphs is not a number, show message to enter a number where generated text would be.
+If number is too large (>50?) or < 0, show message to enter 1 <= number <= 50 where generated text would be.
+The selected number of paragraphs of the selected size are shown on the page
+Sentences will be between 5-7 words
+
+
+----------------------------------------------------------
+---------------Stretch Goals:-----------------------------
+----------------------------------------------------------
+- User can select minimum and maximum number of words in generated paragraphs.
+- Instead of small - med -large paragraphs, user can select number of sentences in paragraphs.
+
+
+----------------------------------------------------------
+---------------Pseudocode---------------------------------
+----------------------------------------------------------
+-Have a 2d array to store words : array to allow for random selection
+    Main index is categories of words: eg. neighbourhoods, sports, landmarks, food, etc
+    Secondary arrays should all be same size
+-Have array of punctuation marks
+
+Set paragraph size slider to correspond to numbers (5 10 15?)
+
+When user clicks generate:
+    capture number of paragraphs user enters
+    capture size of paragraphs user chose
+
+    Create empty output string
+    for number of paragraphs: 
+        for number of sentences in paragraph:
+            Generate random number between 5-7
+            for that random number: => generate words
+                Select random index in 2d word array
+                concatanate word to output string
+            concatenate a random sentence ending punctuation
+        concatenate new paragraph
+    
+    Show generated 'output' string to page using jquery
+
+Function: generate random number between min-maximum
+
