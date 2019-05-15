@@ -7,28 +7,29 @@ Description: Generates filler text, but it's all Toronto related words
 ----------------------------------------------------------
 ---------------Minimum viable product:--------------------
 ----------------------------------------------------------
-User selects number of paragraphs: 1 - 10 (slider?)
-User selects size of paragraphs: small - med - large (slider)
+Generate one paragraph of random text
+User selects size of paragraphs: small - med - large (range slider input)
 User hits generate 
-If # paragraphs is not a number, show message to enter a number where generated text would be.
-If number is too large (>50?) or < 0, show message to enter 1 <= number <= 50 where generated text would be.
-The selected number of paragraphs of the selected size are shown on the page
-Sentences will be between 5-7 words
-
+The selected number of paragraphs of the selected size are shown below on the page
+Sentences will be random and between 5-7 words.
+The same word won't be picked back to back
 
 ----------------------------------------------------------
 ---------------Stretch Goals:-----------------------------
 ----------------------------------------------------------
-- User can select minimum and maximum number of words in generated paragraphs.
-- Instead of small - med -large paragraphs, user can select number of sentences in paragraphs.
+- User selects number of paragraphs: 1 - 10 (range slider input)
+- Greeting blurb on page will have a 'Hello' in a random language every page load.
+- User can select minimum and maximum number of words in generated paragraphs. (range slider)
+- Instead of small - med -large paragraphs, user can select number of sentences in paragraphs. (range slider)
+- Users can select what category of words to use/not use eg. places, sports, etc (checkboxes)
 
 
 ----------------------------------------------------------
 ---------------Pseudocode---------------------------------
 ----------------------------------------------------------
--Have a 2d array to store words : array to allow for random selection
-    Main index is categories of words: eg. neighbourhoods, sports, landmarks, food, etc
-    Secondary arrays should all be same size
+-Have a 2d array to store words: use an array to allow for random selection
+    Main index is categories of words: eg. neighbourhoods, sports, landmarks, hellos, etc
+    
 -Have array of punctuation marks
 
 Set paragraph size slider to correspond to numbers (5 10 15?)
@@ -40,7 +41,7 @@ When user clicks generate:
     Create empty output string
     for number of paragraphs: 
         for number of sentences in paragraph:
-            Generate random number between 5-7
+            Generate random number between 5
             for that random number: => generate words
                 Select random index in 2d word array
                 concatanate word to output string

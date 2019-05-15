@@ -1,12 +1,12 @@
 section.userInput {
-    height: 40vh;
+    height: 50vh;
 }
 
 form {
-    padding: 50px 0;
     height: 100%;
+    padding: 50px 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }

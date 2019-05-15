@@ -15,25 +15,33 @@
     </header>
     <section class="userInput">
         <div class="outerWrapper">
-            <form class="wrapper" oninput="paraSizeValue.value = paraSize.valueAsNumber">
+            <!-- oninput is for range slider label -->
+            <!-- <form class="wrapper" oninput="numParaValue.value=numPara.valueAsNumber">
                 <fieldset class="numParagraphs">
                     <label for="numParagraphs">Number of paragraphs</label>
-                    <input type="text" id="numParagraphs">
+                    <input name="numPara" type="range" min="1" max="10" step="1" value="1" id="numParagraphs">
+                    <output name="numParaValue" for="numParagraphs">1</output>
                 </fieldset>
+            </form> -->
+            <!-- oninput is for range slider label -->
+            <form class="wrapper" oninput="paraSizeValue.value=paraSize.valueAsNumber">
                 <fieldset class="paragraphSize">
                     <label for="paragraphSize">Sentences in paragraphs</label>
-                    <input name="paraSize" type="range" min="5" max="15" step="5" value="5" id="paragraphSize" list="tickmarks">
+                    <input name="paraSize" type="range" min="5" max="15" step="5" value="5" id="paragraphSize">
                     <output name="paraSizeValue" for="paragraphSize">5</output>
-                    
                 </fieldset>
                 <button>Generate</button>
             </form>
         </div>
     </section>
-    <section class="generatedOutput">
-
+    <section class="bottomSection">
+        <div class="outerWrapper">
+            <div class="wrapper generatedOutput">
+                
+            </div>
+        </div>
     </section>
-
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
     <script src="./scripts/scripts.js"></script>
 </body>
 </html>

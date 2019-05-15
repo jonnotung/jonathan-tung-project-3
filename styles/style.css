@@ -212,12 +212,12 @@ header .outerWrapper {
 }
 
 section.userInput {
-  height: 40vh;
+  height: 50vh;
 }
 
 form {
-  padding: 50px 0;
   height: 100%;
+  padding: 50px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -228,12 +228,33 @@ form {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-section.generatedOutput {
+section.bottomSection {
   background: lightgrey;
+}
+
+.generatedOutput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.generatedOutput h2 {
+  margin-top: 75px;
+}
+
+.generatedOutput p {
+  margin-bottom: 75px;
 }
 /*# sourceMappingURL=style.css.map */
