@@ -15,14 +15,16 @@
     </header>
     <section class="userInput">
         <div class="outerWrapper">
-            <form class="wrapper">
+            <form class="wrapper" oninput="paraSizeValue.value = paraSize.valueAsNumber">
                 <fieldset class="numParagraphs">
                     <label for="numParagraphs">Number of paragraphs</label>
                     <input type="text" id="numParagraphs">
                 </fieldset>
                 <fieldset class="paragraphSize">
-                    <label for="paragraphSize">Size of paragraphs</label>
-                    <input type="range" min="5" max="15" step="5" value="10" id="paragraphSize">
+                    <label for="paragraphSize">Sentences in paragraphs</label>
+                    <input name="paraSize" type="range" min="5" max="15" step="5" value="5" id="paragraphSize" list="tickmarks">
+                    <output name="paraSizeValue" for="paragraphSize">5</output>
+                    
                 </fieldset>
                 <button>Generate</button>
             </form>

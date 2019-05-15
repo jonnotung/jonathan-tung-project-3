@@ -11,10 +11,18 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 //----------------------
 .outerWrapper {
     max-width: 1600px;
+    margin: 0 auto; 
     height: 100%;
 }
 
 .wrapper {
     width: 80%;
     margin: 0 auto;
+}
+
+//------------------------
+//---typography setup-----
+//------------------------
+body {
+    font-size: 125%; 
 }

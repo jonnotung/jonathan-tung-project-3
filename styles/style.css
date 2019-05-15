@@ -181,6 +181,7 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 
 .outerWrapper {
   max-width: 1600px;
+  margin: 0 auto;
   height: 100%;
 }
 
@@ -189,8 +190,13 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
   margin: 0 auto;
 }
 
+body {
+  font-size: 125%;
+}
+
 header {
   height: 50vh;
+  background-color: lightgrey;
 }
 
 header .outerWrapper {
@@ -206,10 +212,11 @@ header .outerWrapper {
 }
 
 section.userInput {
-  height: 30vh;
+  height: 40vh;
 }
 
 form {
+  padding: 50px 0;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -221,7 +228,12 @@ form {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+section.generatedOutput {
+  background: lightgrey;
 }
 /*# sourceMappingURL=style.css.map */
