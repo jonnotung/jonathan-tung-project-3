@@ -10,3 +10,18 @@ form {
     align-items: center;
     justify-content: center;
 }
+
+button {
+    margin-top: 25px;
+    width: 35%;
+    height: 15%;
+    border-radius: 10px;
+}
+
+
+.userInput .outerWrapper {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+}
