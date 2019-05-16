@@ -3,10 +3,11 @@
 //-------------------------------
 
 $shadowBlue: #214C80;
-$highlightBlue: #cce3ff;
+$highlightBlue: #eff6ff;
 $midtoneBlue: #4297FF;
-$greyBlue: #476180;
+$greyBlue: #232e3a;
 $midShadowBlue: #3579CC;
+$accentOrange: #f71a0e;
 
 
 //-------------------------------------------------------------------------------
@@ -15,7 +16,7 @@ $midShadowBlue: #3579CC;
 //---https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/---
 //-------------------------------------------------------------------------------
 
-@mixin sliderThumb() {
+@mixin slider-thumb() {
     border: 1px solid #000000;
     height: 36px;
     width: 16px;
@@ -25,12 +26,12 @@ $midShadowBlue: #3579CC;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; 
 }
 
-@mixin sliderTrack() {
+@mixin slider-track() {
     width: 100%;
     height: 8.4px;
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: #3071a9;
+    background: $accentOrange;
     border-radius: 1.3px;
     border: 0.2px solid #010101;
 }

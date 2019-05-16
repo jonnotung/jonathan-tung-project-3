@@ -11,12 +11,12 @@
 </head>
 <body>
     <header>
-        <div class="outerWrapper">
+        <div class="outer-wrapper">
             <h1>Toronto Ipsum Generator</h1>
         </div>
     </header>
-    <section class="userInput">
-        <div class="outerWrapper">
+    <section class="user-input">
+        <div class="outer-wrapper">
             <h2>Yo fam generate some placeholder text</h2>
             <!-- oninput is for range slider label -->
             <!-- <form class="wrapper" oninput="numParaValue.value=numPara.valueAsNumber">
@@ -27,19 +27,19 @@
                 </fieldset>
             </form> -->
             <!-- oninput is for range slider label -->
-            <form class="wrapper" oninput="paraSizeValue.value=paraSize.valueAsNumber">
-                <fieldset class="paragraphSize">
-                    <label for="paragraphSize">Sentences in paragraphs</label>
-                    <input name="paraSize" type="range" min="5" max="15" step="5" value="5" id="paragraphSize">
-                    <output name="paraSizeValue" for="paragraphSize">5</output>
+            <form class="wrapper" >
+                <fieldset class="paragraph-size">
+                    <label for="paragraph-size">How many sentences per paragraph?</label>
+                    <input name="para-size" type="range" min="5" max="15" step="5" value="5" id="paragraph-size">
+                    <output name="para-size-value" for="paragraph-size">5</output>
                 </fieldset>
                 <button>Generate</button>
             </form>
         </div>
     </section>
-    <section class="bottomSection">
-        <div class="outerWrapper">
-            <div class="wrapper generatedOutput">
+    <section class="bottom-section">
+        <div class="outer-wrapper">
+            <div class="wrapper generated-output">
                 
             </div>
         </div>

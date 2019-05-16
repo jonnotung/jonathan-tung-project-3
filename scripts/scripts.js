@@ -8,8 +8,7 @@ const wordLibrary = [`Finch`, `North York Center`, `Sheppard`, `York Mills`, `La
 
 `U of T`, `Ryerson`, `York`, `Humber`, `Centennial`, `George Brown`, `Seneca`,
 
-`Trash panda`, `wasteman`, `bless`, `amped`, `ahlie`, `come thru`, `cyattie`, `deafaz`, `differently`, `fam`, `fom`, `greezy`, `merked`, `lowe`, `lowkey`, `nice`, `regulate`, `snake`, `styll`, `blem`, `beat`, `cheesed`, `extra`, `gassed`, `lit`, `sus`, `ting`, `sweetersman`, `preeing`, `tun up`, `top left`, `szeen`, `sav`,`marved`, `mossin`, `gheez`, `bout it`, `arms`, `waste yute`, `make moves`, `nize it`,
-
+`Trash panda`, `wasteman`, `bless`, `amped`, `ahlie`, `come thru`, `cyattie`, `deafaz`, `differently`, `fam`, `fom`, `greezy`, `merked`, `lowe`, `lowkey`, `nice`, `regulate`, `snake`, `styll`, `blem`, `beat`, `cheesed`, `extra`, `gassed`, `lit`, `sus`, `ting`, `sweetersman`, `preeing`, `tun up`, `top left`, `szeen`, `sav`,`marved`, `mossin`, `gheez`, `bout it`, `arms`, `waste yute`, `make moves`, `nize it`, `yutes`, `the 6ix`, `905`, `416`, `flex`, `cop`, `scoop`, `sauga`,
 `Drake`, `Massey Hall`, `Roy Thompson Hall`, `The Weeknd`];
 
 //function to only capitalize first string in argument
@@ -27,7 +26,7 @@ $(function(){
         event.preventDefault();
         
         //capture number of sentences user wants from paragraphSize slider
-        const numOfSentences = $(`#paragraphSize`).val();
+        const numOfSentences = $(`#paragraph-size`).val();
         
         //create string we want to concatenate onto
         let generatedString = `<p>`;
@@ -66,8 +65,8 @@ $(function(){
         generatedString = generatedString + `</p>`;
 
         //clear generated output section
-        $(`.generatedOutput`).empty();
-        $(`.generatedOutput`).append(`<h2>Here's your text eh</h2>`, generatedString);
+        $(`.generated-output`).empty();
+        $(`.generated-output`).append(`<h2>Here's your text eh</h2>`, generatedString);
         //add generated string to output section
         // $(`.generatedOutput`).html(generatedString);
     });
