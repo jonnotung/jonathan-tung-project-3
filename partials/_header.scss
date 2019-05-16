@@ -1,10 +1,19 @@
+h1 {
+    color: $highlightBlue;
+    margin-top: 6vh;
+    font-size: 4rem;
+    text-shadow: $midtoneBlue 1px 0 20px;
+}
+
 header {
     height: 50vh;
-    background-color: lightgrey;
+    background-image: url("../assets/bridge-underpass.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: none;
 }
 
 header .outerWrapper {
     display: flex;
     justify-content: center;
-    align-items: center;
 }

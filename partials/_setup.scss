@@ -20,9 +20,46 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
     margin: 0 auto;
 }
 
-//------------------------
-//---typography setup-----
-//------------------------
+//-------------------------------
+//---common typography setup-----
+//-------------------------------
 body {
     font-size: 125%; 
 }
+
+h1, h2 {
+    font-family: 'Rubik', sans-serif;
+}
+
+p {
+    font-family: 'Karla', sans-serif;
+}
+
+//-------------------------------------------------------------------------------
+//----removing default styling on range slider inputs----------------------------
+//--------based on examples by Daniel Stren--------------------------------------
+//---https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/---
+//-------------------------------------------------------------------------------
+
+input[type=range] {
+    appearance: none; 
+    width: 100%;
+    background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+

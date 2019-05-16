@@ -1,0 +1,36 @@
+//-------------------------------
+//-----------Colors--------------
+//-------------------------------
+
+$shadowBlue: #214C80;
+$highlightBlue: #cce3ff;
+$midtoneBlue: #4297FF;
+$greyBlue: #476180;
+$midShadowBlue: #3579CC;
+
+
+//-------------------------------------------------------------------------------
+//-------mixins for input range styling------------------------------------------
+//--------based on examples by Daniel Stren--------------------------------------
+//---https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/---
+//-------------------------------------------------------------------------------
+
+@mixin sliderThumb() {
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; 
+}
+
+@mixin sliderTrack() {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #3071a9;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}

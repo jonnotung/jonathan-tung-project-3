@@ -1,5 +1,6 @@
 section.userInput {
     height: 50vh;
+    background-color: $highlightBlue;
 }
 
 form {
@@ -14,14 +15,68 @@ form {
 button {
     margin-top: 25px;
     width: 35%;
-    height: 15%;
+    height: 50px; 
     border-radius: 10px;
 }
 
+input {
+    width: 60%;
+}
+
+fieldset {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    border: none;
+}
 
 .userInput .outerWrapper {
     display: flex;
     flex-direction: column; 
     align-items: center;
     justify-content: center;
+}
+
+//-------------------------------------------------------------------------------
+//-----------input range slider styles-------------------------------------------
+//---------much harder than it should be-----------------------------------------
+//--------based on examples by Daniel Stren--------------------------------------
+//---https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/---
+//-------------------------------------------------------------------------------
+
+//--------------------------------------------
+//------------Style slider thumb-thingy-------
+//--------------------------------------------
+
+//webkit/blink specific styling
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -14px;
+    @include sliderThumb();
+}
+
+//firefox styles
+input[type=range]::-moz-range-thumb {
+    @include sliderThumb();
+}
+
+//ie styles
+input[type=range]::-ms-thumb {
+    @include sliderThumb();
+}
+
+//---------------------------------------------
+//------------Style slider track---------------
+//---------------------------------------------
+
+input[type=range]::-webkit-slider-runnable-track {
+    @include sliderTrack();
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #367ebd;
+}
+
+input[type=range]::-moz-range-track {
+    @include sliderTrack();
 }
