@@ -18,7 +18,7 @@ output {
 
 button {
     width: 45%;
-    border-radius: 10px;
+    border-radius: $round-borders;
     padding: 25px 0;
     margin: 50px auto 0 auto;
     display: block;
@@ -54,7 +54,7 @@ fieldset {
     border: none; 
     padding: 25px 0;
     background-color: rgba(239,246,255, 0.75);
-    border-radius: 10px;
+    border-radius: $round-borders;
     border: 1px solid $midtoneBlue;
     display: flex;
     justify-content: space-around;

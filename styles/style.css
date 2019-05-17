@@ -237,9 +237,9 @@ input[type=range]::-ms-track {
 }
 
 .start-page {
-  background-image: url("../assets/bridge-underpass.jpg");
+  background-image: url("../assets/city-hall-night.jpg");
   background-size: cover;
-  background-position: center center;
+  background-position: center 70%;
   background-repeat: none;
   height: 100vh;
 }
@@ -261,8 +261,8 @@ input[type=range]::-ms-track {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-radius: 10px;
-  background-color: rgba(5, 10, 20, 0.8);
+  border-radius: 20px;
+  background-color: rgba(5, 10, 20, 0.85);
 }
 
 h1 {
@@ -306,7 +306,7 @@ output {
 
 button {
   width: 45%;
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 25px 0;
   margin: 50px auto 0 auto;
   display: block;
@@ -343,7 +343,7 @@ fieldset {
   border: none;
   padding: 25px 0;
   background-color: rgba(239, 246, 255, 0.75);
-  border-radius: 10px;
+  border-radius: 20px;
   border: 1px solid #4297FF;
   display: -webkit-box;
   display: -ms-flexbox;

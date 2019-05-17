@@ -3,9 +3,9 @@
 //-----------------------------------------------------------
 
 .start-page {
-    background-image: url("../assets/bridge-underpass.jpg");
+    background-image: url("../assets/city-hall-night.jpg");
     background-size: cover;
-    background-position: center center;
+    background-position: center 70%;
     background-repeat: none;
     height: 100vh;
 }
@@ -20,6 +20,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 10px;
-    background-color: rgba(5, 10, 20, 0.8);
+    border-radius: $round-borders;
+    background-color: rgba(5, 10, 20, 0.85);
 }
