@@ -182,7 +182,6 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner {
 .outer-wrapper {
   max-width: 1600px;
   margin: 0 auto;
-  height: 100%;
 }
 
 .wrapper {
@@ -194,13 +193,13 @@ body {
   font-size: 125%;
 }
 
-h1, h2 {
+h1, h2, button {
   font-family: 'Rubik', sans-serif;
 }
 
 h2 {
   font-size: 2.25rem;
-  text-shadow: #214C80 1px 0 10px;
+  text-shadow: #214C80 1px 0 2px;
 }
 
 p {
@@ -211,7 +210,6 @@ input[type=range] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  width: 100%;
   background: transparent;
 }
 
@@ -235,7 +233,9 @@ h1 {
   color: #eff6ff;
   margin-top: 6vh;
   font-size: 4rem;
-  text-shadow: #4297FF 1px 0 20px;
+  text-shadow: #4297FF 5px 0 30px;
+  background: rgba(5, 10, 20, 0.8);
+  padding: 50px;
 }
 
 header {
@@ -257,25 +257,15 @@ header .outer-wrapper {
 
 section.user-input {
   height: 50vh;
-  background-color: #eff6ff;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(239, 246, 255, 0.9)), to(rgba(239, 246, 255, 0.9))), url(../assets/city-hall.jpg);
+  background: linear-gradient(rgba(239, 246, 255, 0.9), rgba(239, 246, 255, 0.9)), url(../assets/city-hall.jpg);
+  background-size: cover;
+  background-position: center center;
 }
 
 form {
   height: 100%;
   padding-bottom: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 h2, label {
@@ -283,7 +273,8 @@ h2, label {
 }
 
 label {
-  margin-bottom: 15px;
+  width: 30%;
+  float: left;
 }
 
 output {
@@ -291,31 +282,25 @@ output {
 }
 
 button {
-  margin-top: 25px;
   width: 45%;
   border-radius: 10px;
   padding: 25px 0;
+  margin: 25px auto 0 auto;
+  display: block;
+  border: none;
+  background-color: #f71a0e;
+  color: #eff6ff;
 }
 
 input {
-  width: 60%;
+  margin-top: 7px;
+  width: 63%;
+  float: right;
 }
 
 fieldset {
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   border: none;
 }
 

@@ -2,7 +2,9 @@ h1 {
     color: $highlightBlue;
     margin-top: 6vh;
     font-size: 4rem;
-    text-shadow: $midtoneBlue 1px 0 20px;
+    text-shadow: $midtoneBlue 5px 0 30px;
+    background: rgba(5, 10, 20, 0.8);
+    padding: 50px;
 }
 
 header {

@@ -1,15 +1,13 @@
 section.user-input {
     height: 50vh;
-    background-color: $highlightBlue;
+    background: linear-gradient(rgba(239,246,255, 0.9), rgba(239,246,255, 0.9)), url(../assets/city-hall.jpg);
+    background-size: cover;
+    background-position: center center;
 }
 
 form {
     height: 100%;
-    padding-bottom: 50px ;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    justify-content: center;
+    padding-bottom: 50px ; 
 }
 
 h2, label {
@@ -17,7 +15,10 @@ h2, label {
 }
 
 label {
-    margin-bottom: 15px;
+    // margin-bottom: 15px;
+    
+    width: 30%;
+    float: left;
 }
 
 output {
@@ -25,25 +26,31 @@ output {
 }
 
 button {
-    margin-top: 25px;
+    // margin-top: 25px;
     width: 45%;
     border-radius: 10px;
     padding: 25px 0;
-    
+    margin: 25px auto 0 auto;
+    display: block;
+    border: none;
+    background-color: #f71a0e;
+    color: #eff6ff;
 }
 
 input {
-    width: 60%;
+    margin-top: 7px;
+    width: 63%;
+    float: right;
 }
 
 fieldset {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
     border: none;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: space-between;
+    // align-items: center;
 }
 
 .user-input .outer-wrapper {
