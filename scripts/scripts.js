@@ -1,13 +1,12 @@
 //--------------------------------
 //-----app object name space------
 //--------------------------------
+const torontoIpsumApp = {};
 
-const torontoIpsumApp = {
-    
-};
-
-
-const wordLibrary = [`Finch`, `North York Center`, `Sheppard`, `York Mills`, `Lawrence`, `Eglinton`, `Davisville`, `St Clair`, `Summerhill`, `Rosedale`, `Bloor`, `Wellesley`, `College`, `Dundas`, `Queen`, `King`, `Union`, `St Andrew`, `Osgoode`, `St Patrick`, `Museum`, `St George`, `Spadina`, `Dupont`, `Glencairn`, `Yorkdale`, `Wilson`, `Downsview`, `Kipling`, `Islington`, `Royal York`, `Old Mill`, `Jane`, `Runnymede`, `High Park`, `Keele`, `Lansdowne`, `Dufferin`, `Ossington`, `Christie`, `Bathurst`, `Bay`, `Sherbourne`, `Castle Frank`, `Broadview`, `Chester`, `Pape`, `Donlands`, `Greenwood`, `Coxwell`, `Woodbine`, `Main Street`, `Victoria Park`, `Warden`, `Kennedy`, `Ellesmere`, `Midland`, `STC`, `Bayview`, `Bessarion`, `Leslie`, `Don Mills`, `McCowan`,
+//------------------------------------------------
+//-------define word library to draw from---------
+//------------------------------------------------
+torontoIpsumApp.wordLibrary = [`Finch`, `North York Center`, `Sheppard`, `York Mills`, `Lawrence`, `Eglinton`, `Davisville`, `St Clair`, `Summerhill`, `Rosedale`, `Bloor`, `Wellesley`, `College`, `Dundas`, `Queen`, `King`, `Union`, `St Andrew`, `Osgoode`, `St Patrick`, `Museum`, `St George`, `Spadina`, `Dupont`, `Glencairn`, `Yorkdale`, `Wilson`, `Downsview`, `Kipling`, `Islington`, `Royal York`, `Old Mill`, `Jane`, `Runnymede`, `High Park`, `Keele`, `Lansdowne`, `Dufferin`, `Ossington`, `Christie`, `Bathurst`, `Bay`, `Sherbourne`, `Castle Frank`, `Broadview`, `Chester`, `Pape`, `Donlands`, `Greenwood`, `Coxwell`, `Woodbine`, `Main Street`, `Victoria Park`, `Warden`, `Kennedy`, `Ellesmere`, `Midland`, `STC`, `Bayview`, `Bessarion`, `Leslie`, `Don Mills`, `McCowan`,
 
 `Skydome`, `Blue Jays`, `Rogers center`, `Joe Carter`, `Roberto Alomar`, `Jose Bautista`, `Carlos Delgado`, `Roy Halladay`, `ACC`, `Vince Carter`, `Curtis Joseph` ,`DeMar DeRozan`, `Kyle Lowry`, `Kawhi Leonard`, `Maple Leaf Gardens`, `Mats Sundin`, `Darryl Sittler`, `Doug Gilmour`, `Borje Salming`, `Wendel Clark`, `Penny Oleksiak`, `Rosie Maclennan`, `Michelle Williams`, `Silken Laumann`, `Heather Moyse`, `Phylicia George`,
 
@@ -20,75 +19,155 @@ const wordLibrary = [`Finch`, `North York Center`, `Sheppard`, `York Mills`, `La
 `Trash panda`, `wasteman`, `bless`, `amped`, `ahlie`, `come thru`, `cyattie`, `deafaz`, `differently`, `fam`, `fom`, `greezy`, `merked`, `lowe`, `lowkey`, `nice`, `regulate`, `snake`, `styll`, `blem`, `beat`, `cheesed`, `extra`, `gassed`, `lit`, `sus`, `ting`, `sweetersman`, `preeing`, `tun up`, `top left`, `szeen`, `sav`,`marved`, `mossin`, `gheez`, `bout it`, `arms`, `waste yute`, `make moves`, `nize it`, `yutes`, `the 6ix`, `905`, `416`, `flex`, `cop`, `scoop`, `sauga`,
 `Drake`, `Massey Hall`, `Roy Thompson Hall`, `The Weeknd`];
 
-//function to only capitalize first string in argument
-const makeCapitalized = function(ourString){
+
+
+//--------------------------------------------
+//-------------variables----------------------
+//--------------------------------------------
+torontoIpsumApp.wordsPerSentence = 5;
+torontoIpsumApp.minWordsPerSent = 4;
+torontoIpsumApp.maxWordsPerSent = 7;
+torontoIpsumApp.generatedString;
+//store past/current randomIndex in object, instead of constantly passing it as an argument
+torontoIpsumApp.randomIndex;
+
+//-----------------------------------------------------------
+//---------Ye olde functions for doin thangs-----------------
+//-----------------------------------------------------------
+
+//returns argument string with only the first letter capitalized
+ torontoIpsumApp.makeCapitalized = function(ourString){
     return ourString.charAt(0).toUpperCase() + ourString.slice(1).toLowerCase();
 };
 
+//returns a random integer x such that: min <= x < max
+torontoIpsumApp.randomNumRange = function(min, max) {
+    const interval = max - min;
+    return Math.floor(Math.random() * interval) + min;
+};
+
+//returns a random word from the word library, 
+//if wordPosition = 0 capitalize it
+torontoIpsumApp.randomWord = function(wordPosition) {
+    //get a random index for word library that's different from randNum in object
+    const randNum = this.noRepeatRandNum();
+    //use let because we're modifying the word based on where it is in a sentence
+    let newWord = this.wordLibrary[randNum];
+    
+    //Capitalize word if it's first in sentence, otherwise lowercase
+    if (wordPosition === 0) {
+        newWord = this.makeCapitalized(newWord);
+    } else {
+        newWord = newWord.toLowerCase();
+    }
+    return newWord;
+}
+
+//returns a randomm number that is not the same as randomIndex in namespace object
+torontoIpsumApp.noRepeatRandNum = function() {
+    //use let because we might reassign newRandomNum
+    let newRandomNum = this.randomNumRange(0, this.wordLibrary.length);
+    //while new random number is equal to randNum in object
+    while (newRandomNum === this.randomIndex) {
+        newRandomNum = this.randomNumRange(0, this.wordLibrary.length);
+    }
+    return newRandomNum;
+};
+
+//builds up sentences in generatedOutput string in namespace object
+//repeats randomWord() in a loop
+torontoIpsumApp.putWordsInSentence = function() {
+    //generate 5 random words and concatenate them to make a sentence
+    for (let i = 0; i < this.wordsPerSentence; i++) {
+
+        //pick a new word that isn't the same as previous word
+        const wordToAdd = this.randomWord(i);
+
+        //concatenate new word to ongoing generated string
+        torontoIpsumApp.generatedString = torontoIpsumApp.generatedString + ` ` + wordToAdd;
+        //If last word in a sentence add a period
+        if (i === this.wordsPerSentence - 1) {
+            torontoIpsumApp.generatedString = torontoIpsumApp.generatedString + `.`;
+        }
+    }
+};
+
+//build up paragraph(s) in generatedOutput string in namespace object
+//repeats putWordsInSentence() in a loop
+torontoIpsumApp.buildParagraph = function(sentencesPerParagraph) {
+    //create string we want to concatenate onto
+    torontoIpsumApp.generatedString = `<p>`;
+
+    //for the number of sentences
+    for (let i = 0; i < sentencesPerParagraph; i++) {
+        torontoIpsumApp.putWordsInSentence();
+    }
+    //close </p> tag on generated string
+    torontoIpsumApp.generatedString += `</p>`;
+
+};
+
+
+//-----------------------------------------------------------
+//---------Ye olde jquery event handlers---------------------
+//-----------------------------------------------------------
+
+//event listener for when slide input changes
+//display slider's value on page
+torontoIpsumApp.inputRangeListener = function() {
+        this.$paragraphSizeSlider.change(function () {
+        this.$sliderValueDisplay.text($(this).val());
+    });
+};
+
+
+//event listener for when generate button is clicked
+torontoIpsumApp.generateText = function() {
+    //When user presses 'generate' button
+    $(`button`).on(`click`, function (event) {
+        //disable default behviour
+        event.preventDefault();
+
+        //capture number of sentences user wants from paragraphSize slider
+        const numOfSentences = torontoIpsumApp.$paragraphSizeSlider.val();
+
+        //random index of word library, store as attribute in namespace object for easy access
+        torontoIpsumApp.randomIndex = torontoIpsumApp.randomNumRange(0, torontoIpsumApp.wordLibrary.length);
+
+        //start building the paragraph we want to output
+        torontoIpsumApp.buildParagraph(numOfSentences);
+
+        //clear generated output section
+        $(`.generated-output`).empty();
+        //add generated string to output section
+        $(`.generated-output`).append(`<h2>Here's your text eh</h2>`, torontoIpsumApp.generatedString);
+        
+
+        $(`.scroll-down-notification`).hide().text(`Scroll down for your text!`).fadeIn();
+
+    });
+};
+
+//-------------------------------------------------------------------
+//---------Ye olde init wrapper function-----------------------------
+//-------------------------------------------------------------------
+torontoIpsumApp.init = function() {
+    this.inputRangeListener();
+    this.generateText();
+}
 
 
 //Document ready check
 $(function(){
+    //----------------------------------------
+    //---------jquery DOM references----------
+    //----------------------------------------
+    torontoIpsumApp.$paragraphSizeSlider = $(`#paragraph-size`);
+    torontoIpsumApp.$sliderValueDisplay = $(`.slider-value`);
     
-    const paragraphSizeSlider = $(`#paragraph-size`);
-    $(`.slider-value`).text(paragraphSizeSlider.val());
+    //Display slider's starting value on webpage
+    torontoIpsumApp.$sliderValueDisplay.text(torontoIpsumApp.$paragraphSizeSlider.val());
 
-    //event listener for when slide input changes
-    $(`#paragraph-size`).change( function(){
-        // console.log($(this).val());
-        $(`.slider-value`).text($(this).val());
-    });
-
-
-    //When user presses 'generate' button
-    $(`button`).on(`click`, function(event){
-        //disable default behviour
-        event.preventDefault();
-        
-        //capture number of sentences user wants from paragraphSize slider
-        const numOfSentences = $(`#paragraph-size`).val();
-        
-        //create string we want to concatenate onto
-        let generatedString = `<p>`;
-        
-        //random number to pick a random word in array, store as variable to prevent same word being chosen twice in a row
-        let randomIndex = Math.floor(Math.random() * wordLibrary.length);
-
-        //for the number of sentences
-        for(let i = 0; i < numOfSentences; i++) {
-            //generate 5 random words and concatenate them to make a sentence
-            for(let i = 0; i < 5; i++) {
-                //pick a random number
-                let newRandomNum = Math.floor(Math.random() * wordLibrary.length);
-
-                //while new random number is equal to the one from previous iteration pick a new number
-                while(newRandomNum === randomIndex) {
-                    newRandomNum = Math.floor(Math.random() * wordLibrary.length);
-                }
-                randomIndex = newRandomNum;
-
-                let newWord = wordLibrary[randomIndex].toLowerCase();
-                //Capitalize word if it's first in sentence otherwise lowercase
-                if(i === 0) {
-                    newWord = makeCapitalized(newWord);
-                }
-
-                //concatenate new word to ongoing generated string
-                generatedString = generatedString + ` ` + newWord;
-                //If last word in a sentence add a period
-                if(i === 4) {
-                    generatedString = generatedString + `.`;
-                }
-            }
-        }
-        //close </p> tag on generated string
-        generatedString = generatedString + `</p>`;
-
-        //clear generated output section
-        $(`.generated-output`).empty();
-        $(`.generated-output`).append(`<h2>Here's your text eh</h2>`, generatedString);
-        //add generated string to output section
-        // $(`.generatedOutput`).html(generatedString);
-    });
+    torontoIpsumApp.init();
 
 });
