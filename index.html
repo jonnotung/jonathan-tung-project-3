@@ -10,33 +10,34 @@
     <title>Toronto Ipsum</title>
 </head>
 <body>
-    <section>
-        <header>
-            <div class="outer-wrapper">
-                <h1>Toronto Ipsum Generator</h1>
-            </div>
-        </header>
-        <section class="user-input">
-            <div class="outer-wrapper">
-                <h2>Generate some placeholder text fam</h2>
-                
-                <form class="wrapper" >
-                    <fieldset class="paragraph-size clearfix">
-                        <label for="paragraph-size">
-                            <span class="slider-value"></span> sentences per paragraph
-                        </label>
-                        <input name="para-size" type="range" min="5" max="15" step="5" value="5" id="paragraph-size">
-                        <!-- <output name="para-size-value" for="paragraph-size">5</output> -->
-                    </fieldset>
-                    <button>Generate</button>
-                </form>
-            </div>
-        </section>
+    <section class="start-page">
+        <div class="outer-wrapper">
+            <div class="inner-wrapper">
+                <div class="start-page-content-box">
+                    <header>
+                        <h1>Toronto Ipsum Generator</h1>
+                    </header>
+                    <section class="user-input">
+                        <h2>Generate some placeholder text fam</h2>
+                        <form>
+                            <fieldset class="paragraph-size">
+                                <label for="paragraph-size">
+                                    <span class="slider-value"></span> sentences per paragraph
+                                </label>
+                                <input name="para-size" type="range" min="5" max="15" step="5" value="5" id="paragraph-size">
+                            </fieldset>
+                            <button>Generate</button>
+                        </form>
+                    </section>
+                    <h2 class="scroll-down-notification"></h2>
+                </div>
+            </div> <!-- inner-wrapper -->
+        </div> <!-- outer-wrapper -->
     </section>
 
     <section class="bottom-section">
         <div class="outer-wrapper">
-            <div class="wrapper generated-output">
+            <div class="inner-wrapper generated-output">
                 
             </div>
         </div>

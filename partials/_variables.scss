@@ -9,7 +9,6 @@ $greyBlue: #232e3a;
 $midShadowBlue: #3579CC;
 $accentOrange: #f71a0e;
 
-
 //-------------------------------------------------------------------------------
 //-------mixins for input range styling------------------------------------------
 //--------based on examples by Daniel Stren--------------------------------------
@@ -31,7 +30,7 @@ $accentOrange: #f71a0e;
     height: 8.4px;
     cursor: pointer;
     box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: $accentOrange;
+    background: $midShadowBlue;
     border-radius: 1.3px;
     border: 0.2px solid #010101;
 }

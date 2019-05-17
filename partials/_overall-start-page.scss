@@ -1,0 +1,25 @@
+//-----------------------------------------------------------
+//----------single start landing page backgroudn styles------
+//-----------------------------------------------------------
+
+.start-page {
+    background-image: url("../assets/bridge-underpass.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: none;
+    height: 100vh;
+}
+
+.start-page .inner-wrapper {
+    padding: 7.5vh 0;
+}
+
+.start-page-content-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background-color: rgba(5, 10, 20, 0.8);
+}
