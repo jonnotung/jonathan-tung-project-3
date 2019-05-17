@@ -17,8 +17,19 @@ const makeCapitalized = function(ourString){
 };
 
 
+
 //Document ready check
 $(function(){
+    
+    const paragraphSizeSlider = $(`#paragraph-size`);
+    $(`.slider-value`).text(paragraphSizeSlider.val());
+
+    //event listener for when slide input changes
+    $(`#paragraph-size`).change( function(){
+        // console.log($(this).val());
+        $(`.slider-value`).text($(this).val());
+    });
+
 
     //When user presses 'generate' button
     $(`button`).on(`click`, function(event){

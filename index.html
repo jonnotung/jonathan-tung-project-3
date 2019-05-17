@@ -10,33 +10,30 @@
     <title>Toronto Ipsum</title>
 </head>
 <body>
-    <header>
-        <div class="outer-wrapper">
-            <h1>Toronto Ipsum Generator</h1>
-        </div>
-    </header>
-    <section class="user-input">
-        <div class="outer-wrapper">
-            <h2>Generate some placeholder text, fam</h2>
-            <!-- oninput is for range slider label -->
-            <!-- <form class="wrapper" oninput="numParaValue.value=numPara.valueAsNumber">
-                <fieldset class="numParagraphs">
-                    <label for="numParagraphs">Number of paragraphs</label>
-                    <input name="numPara" type="range" min="1" max="10" step="1" value="1" id="numParagraphs">
-                    <output name="numParaValue" for="numParagraphs">1</output>
-                </fieldset>
-            </form> -->
-            <!-- oninput is for range slider label -->
-            <form class="wrapper" >
-                <fieldset class="paragraph-size clearfix">
-                    <label for="paragraph-size">sentences per paragraph</label>
-                    <input name="para-size" type="range" min="5" max="15" step="5" value="5" id="paragraph-size">
-                    <!-- <output name="para-size-value" for="paragraph-size">5</output> -->
-                </fieldset>
-                <button>Generate</button>
-            </form>
-        </div>
+    <section>
+        <header>
+            <div class="outer-wrapper">
+                <h1>Toronto Ipsum Generator</h1>
+            </div>
+        </header>
+        <section class="user-input">
+            <div class="outer-wrapper">
+                <h2>Generate some placeholder text fam</h2>
+                
+                <form class="wrapper" >
+                    <fieldset class="paragraph-size clearfix">
+                        <label for="paragraph-size">
+                            <span class="slider-value"></span> sentences per paragraph
+                        </label>
+                        <input name="para-size" type="range" min="5" max="15" step="5" value="5" id="paragraph-size">
+                        <!-- <output name="para-size-value" for="paragraph-size">5</output> -->
+                    </fieldset>
+                    <button>Generate</button>
+                </form>
+            </div>
+        </section>
     </section>
+
     <section class="bottom-section">
         <div class="outer-wrapper">
             <div class="wrapper generated-output">
@@ -44,6 +41,8 @@
             </div>
         </div>
     </section>
+
+
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
     <script src="./scripts/scripts.js"></script>
 </body>
