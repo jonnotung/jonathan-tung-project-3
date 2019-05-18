@@ -1,3 +1,7 @@
+//-----------------------------------------
+//--------Generated text section styles----
+//-----------------------------------------
+
 section.bottom-section {
     background: rgba(5, 10, 20, 1);
 }
@@ -12,6 +16,16 @@ section.bottom-section {
 .generated-output h2,
 .generated-output p {
     color: $highlightBlue;
+}
+
+//----------------------------------------
+//------media queries for responsive------
+//----------------------------------------
+
+@media (max-width: 500px) {
+    p {
+        font-size: 1.1rem;
+    }
 }
 
 

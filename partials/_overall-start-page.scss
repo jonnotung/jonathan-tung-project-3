@@ -1,6 +1,6 @@
-//-----------------------------------------------------------
-//----------single start landing page backgroudn styles------
-//-----------------------------------------------------------
+//------------------------------------------------------------
+//----------wrapper and background styles for start page------
+//------------------------------------------------------------
 h1 {
     color: $highlightBlue;
     font-size: 3.6rem;
@@ -27,4 +27,40 @@ h1 {
     align-items: center;
     border-radius: $round-borders;
     background-color: rgba(5, 10, 20, 0.85);
+}
+
+//----------------------------------------
+//------media queries for responsive------
+//----------------------------------------
+
+@media (max-width: 950px) {
+    //reduce header font size
+    h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 700px) {
+    //add some padding to side of inner box
+    .start-page-content-box {
+        padding: 25px 5%; 
+    }
+}
+
+@media (max-width: 475px) {
+    //add some padding to side of inner box
+    .start-page-content-box {
+        padding: 15px 2.5%;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 2rem;
+    }
 }

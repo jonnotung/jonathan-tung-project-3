@@ -16,24 +16,26 @@
                 <div class="start-page-content-box">
                     <h1>Toronto Ipsum Generator</h1>
                     <section class="user-input">
-                        <h2>Generate some placeholder text</h2>
                         <form>
-                            <fieldset class="paragraph-size">
-                                <label for="paragraph-size">
-                                    <span class="slider-value"></span> sentences per paragraph
-                                </label>
-                                <input name="para-size" type="range" min="5" max="15" step="5" value="5" id="paragraph-size">
-                            </fieldset>
-                            <fieldset class="paragraph-num">
-                                <label for="paragraph-num">
-                                    <span class="num-paras-disp"></span> paragraph<span class="para-plural"></span>
-                                </label>
-                                <input name="para-num" type="range" min="1" max="5" step="1" value="1" id="paragraph-num">
-                            </fieldset>
+                            <h2>Generate some placeholder text</h2>
+                                <div class="sliders">
+                                    <fieldset class="paragraph-size">
+                                        <label for="paragraph-size">
+                                            <span class="slider-value"></span> sentences per paragraph
+                                        </label>
+                                        <input name="para-size" type="range" min="5" max="15" step="5" value="5" id="paragraph-size">
+                                    </fieldset>
+                                    <fieldset class="paragraph-num">
+                                        <label for="paragraph-num">
+                                            <span class="num-paras-disp"></span> paragraph<span class="para-plural"></span>
+                                        </label>
+                                        <input name="para-num" type="range" min="1" max="5" step="1" value="1" id="paragraph-num">
+                                    </fieldset>
+                                </div>
                             <button>Generate</button>
                         </form>
+                        <h2 class="scroll-down-notification"></h2>
                     </section>
-                    <h2 class="scroll-down-notification"></h2>
                 </div>
             </div> <!-- inner-wrapper -->
         </div> <!-- outer-wrapper -->
