@@ -124,11 +124,16 @@ torontoIpsumApp.buildParagraph = function() {
 //repeats buildUpParagraph() in a loop
 //called in generate button event handler
 torontoIpsumApp.multipleParagraphs = function(numParagraphs) {
-    //clear generated string each time generate button is pushed
-    torontoIpsumApp.generatedString = ``;
+    //reset generated string each time generate button is pushed
+    //put text in a div so it can be selected and copied by 1 button click
+    torontoIpsumApp.generatedString = `<div class="text-to-copy">`;
     for(let i = 0; i < numParagraphs; i++) {
         this.buildParagraph();
     }
+    //close div
+    torontoIpsumApp.generatedString += `</div>`;
+    //add copy button
+    torontoIpsumApp.generatedString += `<button>Copy text</button>`;
 };
 
 
@@ -166,18 +171,15 @@ torontoIpsumApp.generateText = function() {
         //disable default behviour
         event.preventDefault();
 
-        
-
         //capture number of sentences user wants from paragraphSize slider
         torontoIpsumApp.numOfSentences = torontoIpsumApp.$paragraphSizeSlider.val();
-
+        //capture number of paragraphs user wants from slider input
         const numOfParas = torontoIpsumApp.$numParaSlider.val();
-        console.log(numOfParas);
 
-        //random index of word library, store as attribute in namespace object for easy access
+        //getrandom index of word library, store as attribute in namespace object for easy access
         torontoIpsumApp.randomIndex = torontoIpsumApp.randomNumRange(0, torontoIpsumApp.wordLibrary.length);
 
-        //start building the paragraph we want to output
+        //start building the paragraphs we want to output
         torontoIpsumApp.multipleParagraphs(numOfParas);
 
         //clear generated output section
@@ -186,11 +188,23 @@ torontoIpsumApp.generateText = function() {
         torontoIpsumApp.$generatedOutput.append(`<h2>Yo fam here's your text</h2>`);
         torontoIpsumApp.$generatedOutput.append(torontoIpsumApp.generatedString);
         
-
+        //Add notification text for user to scroll down at bottom of starting screen
         $(`.scroll-down-notification`).hide().text(`Scroll down for your text!`).fadeIn();
-
     });
 };
+
+//event listener for when copy text button is pushed
+//click event delegated to class .generated-output since copy button is dynamically generated
+//Made following https://www.coderomeos.org/select-and-copy-data-to-clipboard-using-jquery
+torontoIpsumApp.copyTextListener = function() {
+    $(`.generated-output`).on(`click`, `button`, function(){
+        const $textToCopy = $(`.text-to-copy`);
+        $textToCopy.focus();
+        $textToCopy.select();
+        //copies the inner HTML to clipboard
+        navigator.clipboard.writeText($textToCopy[0].innerHTML);
+    });
+}
 
 //-------------------------------------------------------------------
 //---------Ye olde init wrapper function-----------------------------
@@ -199,6 +213,7 @@ torontoIpsumApp.init = function() {
     this.paraSizeListener();
     this.generateText();
     this.numParaListener();
+    this.copyTextListener();
 
     //Display sliders starting value on page load/reload
     torontoIpsumApp.$sliderValueDisplay.text(torontoIpsumApp.$paragraphSizeSlider.val());
@@ -208,7 +223,5 @@ torontoIpsumApp.init = function() {
 
 //Document ready check
 $(function(){
-    
     torontoIpsumApp.init();
-
 });

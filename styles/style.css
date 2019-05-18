@@ -290,10 +290,16 @@ h1 {
 
 @media (max-width: 475px) {
   .start-page-content-box {
-    padding: 15px 2.5%;
+    padding: 15px 2%;
   }
   h1 {
     font-size: 2.25rem;
+  }
+  .inner-wrapper {
+    width: 90%;
+  }
+  .start-page .inner-wrapper {
+    padding: 2.5vh 0;
   }
 }
 
@@ -479,6 +485,9 @@ input[type=range]::-moz-range-track {
   }
   label {
     font-size: 0.75rem;
+  }
+  form {
+    padding: 5vh 0;
   }
 }
 
