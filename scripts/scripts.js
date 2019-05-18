@@ -19,15 +19,26 @@ torontoIpsumApp.wordLibrary = [`Finch`, `North York Center`, `Sheppard`, `York M
 `Trash panda`, `wasteman`, `bless`, `amped`, `ahlie`, `come thru`, `cyattie`, `deafaz`, `differently`, `fam`, `fom`, `greezy`, `merked`, `lowe`, `lowkey`, `nice`, `regulate`, `snake`, `styll`, `blem`, `beat`, `cheesed`, `extra`, `gassed`, `lit`, `sus`, `ting`, `sweetersman`, `preeing`, `tun up`, `top left`, `szeen`, `sav`,`marved`, `mossin`, `gheez`, `bout it`, `arms`, `waste yute`, `make moves`, `nize it`, `yutes`, `the 6ix`, `905`, `416`, `flex`, `cop`, `scoop`, `sauga`,
 `Drake`, `Massey Hall`, `Roy Thompson Hall`, `The Weeknd`];
 
+//----------------------------------------
+//---------jquery DOM references----------
+//----------------------------------------
+torontoIpsumApp.$paragraphSizeSlider = $(`#paragraph-size`);
+torontoIpsumApp.$numParaSlider = $(`#paragraph-num`);
+torontoIpsumApp.$sliderValueDisplay = $(`.slider-value`);
+torontoIpsumApp.$paraNumSliderDisplay = $(`.num-paras-disp`)
+torontoIpsumApp.$generatedOutput = $(`.generated-output`);
 
 
 //--------------------------------------------
 //-------------variables----------------------
 //--------------------------------------------
-torontoIpsumApp.wordsPerSentence = 5;
-torontoIpsumApp.minWordsPerSent = 4;
+//used in MVP, disused currently
+// torontoIpsumApp.wordsPerSentence = 5;
+
+torontoIpsumApp.numOfSentences;
+torontoIpsumApp.minWordsPerSent = 3;
 torontoIpsumApp.maxWordsPerSent = 7;
-torontoIpsumApp.generatedString;
+torontoIpsumApp.generatedString = ``;
 //store past/current randomIndex in object, instead of constantly passing it as an argument
 torontoIpsumApp.randomIndex;
 
@@ -75,18 +86,20 @@ torontoIpsumApp.noRepeatRandNum = function() {
 };
 
 //builds up sentences in generatedOutput string in namespace object
-//repeats randomWord() in a loop
+//repeats randomWord() in a loop randomly between minWordsPerSent and maxWordsPerSent times 
 torontoIpsumApp.putWordsInSentence = function() {
     //generate 5 random words and concatenate them to make a sentence
-    for (let i = 0; i < this.wordsPerSentence; i++) {
-
+    //+1 to max since the range is not inclusive at the top end
+    const randNumWords = this.randomNumRange(this.minWordsPerSent, this.maxWordsPerSent + 1);
+   
+    for (let i = 0; i < randNumWords; i++) {
         //pick a new word that isn't the same as previous word
         const wordToAdd = this.randomWord(i);
 
         //concatenate new word to ongoing generated string
         torontoIpsumApp.generatedString = torontoIpsumApp.generatedString + ` ` + wordToAdd;
         //If last word in a sentence add a period
-        if (i === this.wordsPerSentence - 1) {
+        if (i === randNumWords - 1) {
             torontoIpsumApp.generatedString = torontoIpsumApp.generatedString + `.`;
         }
     }
@@ -94,17 +107,28 @@ torontoIpsumApp.putWordsInSentence = function() {
 
 //build up paragraph(s) in generatedOutput string in namespace object
 //repeats putWordsInSentence() in a loop
-torontoIpsumApp.buildParagraph = function(sentencesPerParagraph) {
+torontoIpsumApp.buildParagraph = function() {
     //create string we want to concatenate onto
-    torontoIpsumApp.generatedString = `<p>`;
+    torontoIpsumApp.generatedString += `<p>`;
 
     //for the number of sentences
-    for (let i = 0; i < sentencesPerParagraph; i++) {
+    for (let i = 0; i < torontoIpsumApp.numOfSentences; i++) {
         torontoIpsumApp.putWordsInSentence();
     }
     //close </p> tag on generated string
     torontoIpsumApp.generatedString += `</p>`;
+};
 
+
+//build up multiple paragraphs
+//repeats buildUpParagraph() in a loop
+//called in generate button event handler
+torontoIpsumApp.multipleParagraphs = function(numParagraphs) {
+    //clear generated string each time generate button is pushed
+    torontoIpsumApp.generatedString = ``;
+    for(let i = 0; i < numParagraphs; i++) {
+        this.buildParagraph();
+    }
 };
 
 
@@ -112,14 +136,28 @@ torontoIpsumApp.buildParagraph = function(sentencesPerParagraph) {
 //---------Ye olde jquery event handlers---------------------
 //-----------------------------------------------------------
 
-//event listener for when slide input changes
+//event listener for when paragraph size slide input changes
 //display slider's value on page
-torontoIpsumApp.inputRangeListener = function() {
-        this.$paragraphSizeSlider.change(function () {
-        this.$sliderValueDisplay.text($(this).val());
-    });
+torontoIpsumApp.paraSizeListener = function() {
+        torontoIpsumApp.$paragraphSizeSlider.change(function () {
+            torontoIpsumApp.$sliderValueDisplay.text($(this).val());
+        });
 };
 
+//event listener for when paragraph size slide input changes
+//display slider's value on page
+torontoIpsumApp.numParaListener = function(){
+    torontoIpsumApp.$numParaSlider.change(function(){
+        const value = $(this).val();
+        torontoIpsumApp.$paraNumSliderDisplay.text(value);
+        //dynamically add the 's' at the end of 'paragraph'
+        if(value > 1) {
+            $(`.para-plural`).text(`s`);
+        } else {
+            $(`.para-plural`).empty();
+        }
+    });
+};
 
 //event listener for when generate button is clicked
 torontoIpsumApp.generateText = function() {
@@ -128,19 +166,25 @@ torontoIpsumApp.generateText = function() {
         //disable default behviour
         event.preventDefault();
 
+        
+
         //capture number of sentences user wants from paragraphSize slider
-        const numOfSentences = torontoIpsumApp.$paragraphSizeSlider.val();
+        torontoIpsumApp.numOfSentences = torontoIpsumApp.$paragraphSizeSlider.val();
+
+        const numOfParas = torontoIpsumApp.$numParaSlider.val();
+        console.log(numOfParas);
 
         //random index of word library, store as attribute in namespace object for easy access
         torontoIpsumApp.randomIndex = torontoIpsumApp.randomNumRange(0, torontoIpsumApp.wordLibrary.length);
 
         //start building the paragraph we want to output
-        torontoIpsumApp.buildParagraph(numOfSentences);
+        torontoIpsumApp.multipleParagraphs(numOfParas);
 
         //clear generated output section
-        $(`.generated-output`).empty();
+        torontoIpsumApp.$generatedOutput.empty();
         //add generated string to output section
-        $(`.generated-output`).append(`<h2>Here's your text eh</h2>`, torontoIpsumApp.generatedString);
+        torontoIpsumApp.$generatedOutput.append(`<h2>Yo fam here's your text</h2>`);
+        torontoIpsumApp.$generatedOutput.append(torontoIpsumApp.generatedString);
         
 
         $(`.scroll-down-notification`).hide().text(`Scroll down for your text!`).fadeIn();
@@ -152,22 +196,19 @@ torontoIpsumApp.generateText = function() {
 //---------Ye olde init wrapper function-----------------------------
 //-------------------------------------------------------------------
 torontoIpsumApp.init = function() {
-    this.inputRangeListener();
+    this.paraSizeListener();
     this.generateText();
+    this.numParaListener();
+
+    //Display sliders starting value on page load/reload
+    torontoIpsumApp.$sliderValueDisplay.text(torontoIpsumApp.$paragraphSizeSlider.val());
+    torontoIpsumApp.$paraNumSliderDisplay.text(torontoIpsumApp.$numParaSlider.val());
 }
 
 
 //Document ready check
 $(function(){
-    //----------------------------------------
-    //---------jquery DOM references----------
-    //----------------------------------------
-    torontoIpsumApp.$paragraphSizeSlider = $(`#paragraph-size`);
-    torontoIpsumApp.$sliderValueDisplay = $(`.slider-value`);
     
-    //Display slider's starting value on webpage
-    torontoIpsumApp.$sliderValueDisplay.text(torontoIpsumApp.$paragraphSizeSlider.val());
-
     torontoIpsumApp.init();
 
 });

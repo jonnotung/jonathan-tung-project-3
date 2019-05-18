@@ -1,6 +1,10 @@
 //-----------------------------------------------------------
 //----------single start landing page backgroudn styles------
 //-----------------------------------------------------------
+h1 {
+    color: $highlightBlue;
+    font-size: 3.6rem;
+}
 
 .start-page {
     background-image: url("../assets/city-hall-night.jpg");
@@ -15,6 +19,7 @@
 }
 
 .start-page-content-box {
+    padding: 5vh 0;
     width: 100%;
     height: 100%;
     display: flex;

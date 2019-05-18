@@ -14,9 +14,7 @@
         <div class="outer-wrapper">
             <div class="inner-wrapper">
                 <div class="start-page-content-box">
-                    <header>
-                        <h1>Toronto Ipsum Generator</h1>
-                    </header>
+                    <h1>Toronto Ipsum Generator</h1>
                     <section class="user-input">
                         <h2>Generate some placeholder text</h2>
                         <form>
@@ -25,6 +23,12 @@
                                     <span class="slider-value"></span> sentences per paragraph
                                 </label>
                                 <input name="para-size" type="range" min="5" max="15" step="5" value="5" id="paragraph-size">
+                            </fieldset>
+                            <fieldset class="paragraph-num">
+                                <label for="paragraph-num">
+                                    <span class="num-paras-disp"></span> paragraph<span class="para-plural"></span>
+                                </label>
+                                <input name="para-num" type="range" min="1" max="5" step="1" value="1" id="paragraph-num">
                             </fieldset>
                             <button>Generate</button>
                         </form>
@@ -39,8 +43,8 @@
         <div class="outer-wrapper">
             <div class="inner-wrapper generated-output">
                 
-            </div>
-        </div>
+            </div> <!-- inner-wrapper -->
+        </div> <!-- outer-wrapper -->
     </section>
 
 

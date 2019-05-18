@@ -13,6 +13,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 //----------------------------
 //---strip default styles-----
 //----------------------------
+h1 {
+    margin: 0; 
+}
+
 h2 {
     margin: 0;
     padding: 0;

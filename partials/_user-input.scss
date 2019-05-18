@@ -3,7 +3,7 @@ form {
 }
 
 h2 {
-    margin: 25px 0 75px 0;
+    margin: 25px 0 5px 0;
 }
 
 .user-input {
@@ -52,7 +52,8 @@ label {
 fieldset {
     width: 100%;
     border: none; 
-    padding: 25px 0;
+    padding: 15px 0;
+    margin-top: 20px;
     background-color: rgba(239,246,255, 0.75);
     border-radius: $round-borders;
     border: 1px solid $midtoneBlue;
