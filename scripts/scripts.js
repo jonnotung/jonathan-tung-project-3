@@ -189,10 +189,10 @@ torontoIpsumApp.copyTextListener = function() {
         const $textToCopy = $(`.text-to-copy`);
         $textToCopy.focus();
         $textToCopy.select();
-        //copies the inner HTML to clipboard
+        //copies the inner text to clipboard
         //standard JS document.execComand('copy) doesn't work in event listeners, this is alternative
         //compatible with chrome & firefox, unknown safari support, no support in IE/edge
-        navigator.clipboard.writeText($textToCopy[0].innerHTML);
+        navigator.clipboard.writeText($textToCopy[0].innerText);
     });
 }
 
