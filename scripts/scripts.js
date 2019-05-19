@@ -6,14 +6,19 @@ const torontoIpsumApp = {};
 //------------------------------------------------
 //-------define word library to draw from---------
 //------------------------------------------------
+//base words, always there
 torontoIpsumApp.wordLibraryBase = [`Finch`, `North York Center`, `Sheppard`, `York Mills`, `Lawrence`, `Eglinton`, `Davisville`, `St Clair`, `Summerhill`, `Rosedale`, `Bloor`, `Wellesley`, `College`, `Dundas`, `Queen`, `King`, `Union`, `St Andrew`, `Osgoode`, `St Patrick`, `Museum`, `St George`, `Spadina`, `Dupont`, `Glencairn`, `Yorkdale`, `Wilson`, `Downsview`, `Kipling`, `Islington`, `Royal York`, `Old Mill`, `Jane`, `Runnymede`, `High Park`, `Keele`, `Lansdowne`, `Dufferin`, `Ossington`, `Christie`, `Bathurst`, `Bay`, `Sherbourne`, `Castle Frank`, `Broadview`, `Chester`, `Pape`, `Donlands`, `Greenwood`, `Coxwell`, `Woodbine`, `Main Street`, `Victoria Park`, `Warden`, `Kennedy`, `Ellesmere`, `Midland`, `STC`, `Bayview`, `Bessarion`, `Leslie`, `Don Mills`, `McCowan`, `CN tower`, `Steamwhistle brewery`, `Queens quay`, `Wonderland`, `Ontario place`, `CNE`, `Cabbagetown`, `Corktown`, `Leslieville`, `The beaches`, `Sunnyside`, `Junction`, `Annex`, `Koreatown`, `North York`, `Etobicoke`, `Scarborough`, `East York`, `Toronto`, `Ward's Island`, `Center Island`, `Centerville`, `Olympic Island`, `Riverdale`, `Kensington Market`, `Chinatown`, `Guildwood`, `Harbourfront`, `Queensway`, `Richview`, `Ledbury Park`, `Graydon Hall`, `Riverside`, `Woodbridge`, `Christie pits`, `Allan Gardens`, `Casa Loma`, `Baldwin village`, `Bloorcourt`, `Leaside`, `Bloordale`, `Brockton`, `Church Wellsely Village`, `Cityplace`, `Little Italy`, `Little Portugal`, `Greektown`, `Danforth`, `Davenport`, `Distillery District`, `Dovercourt`, `East Chinatown`, `Forest Hill`, `Harbord Village`, `Keelesdale`, `King East`, `King West`, `Liberty Village`, `Little India`, `Little Tokyo`, `Markham`, `Mississauga`, `Moss Park`, `Mount Pleasant`, `Oakwood Village`, `Port Lands`, `Regent Park`, `Richmond Hill`, `Roncesvalles`, `St James Town`, `St Lawrence Market`, `Stockyards`, `Thorncliffe park`, `Thornhill`, `Vaughn`, `Weston`, `Woodbridge`, `Yorkville`, `Yonge`, `U of T`, `Ryerson`, `York`, `Humber`, `Centennial`, `George Brown`, `Seneca`, `Drake`, `Massey Hall`, `Roy Thompson Hall`, `The Weeknd`, `Jully Black`, `Peaches`, `Deborah Cox`, `Broken Social Scene`, `Feist`, `Metric`, `Lee's Palace`, `Scott Pilgrim`, `The phoenix`, `Horseshoe tavern`, `Will Arnett`, `Catherine O'hara`, `Howie Mandel`, `Mike Myers`, `Christopher Plummer`, `Neil Young`, `John Candy`, `David Cronenberg`, `Rick Moranis`, `Sarah Polley`, `Katheryn Winnick`];
 
+//optional categories that can be added
 torontoIpsumApp.sportsWords = [`Skydome`, `Blue Jays`, `Rogers center`, `Joe Carter`, `Roberto Alomar`, `Jose Bautista`, `Carlos Delgado`, `Roy Halladay`, `ACC`, `Vince Carter`, `Curtis Joseph` ,`DeMar DeRozan`, `Kyle Lowry`, `Kawhi Leonard`, `Maple Leaf Gardens`, `Mats Sundin`, `Darryl Sittler`, `Doug Gilmour`, `Borje Salming`, `Wendel Clark`, `Penny Oleksiak`, `Rosie Maclennan`, `Michelle Williams`, `Silken Laumann`, `Heather Moyse`, `Phylicia George`];
 
 torontoIpsumApp.slangWords = [`Trash panda`, `wasteman`, `bless`, `amped`, `ahlie`, `come thru`, `cyattie`, `deafaz`, `differently`, `fam`, `fom`, `greezy`, `merked`, `lowe`, `lowkey`, `nice`, `regulate`, `snake`, `styll`, `blem`, `beat`, `cheesed`, `extra`, `gassed`, `lit`, `sus`, `ting`, `sweetersman`, `preeing`, `tun up`, `top left`, `szeen`, `sav`,`marved`, `mossin`, `gheez`, `bout it`, `arms`, `waste yute`, `make moves`, `nize it`, `yutes`, `the 6ix`, `905`, `416`, `flex`, `cop`, `scoop`, `sauga`];
 
+//wordLibrary gets build dynamically when generate button is hit
 torontoIpsumApp.wordLibrary = [];
 
+//punctuation library. More periods to make them more common
+torontoIpsumApp.punctuation = [`.`, `.`, `.`, `?`, `!` ];
 //----------------------------------------
 //---------jquery DOM references----------
 //----------------------------------------
@@ -90,9 +95,10 @@ torontoIpsumApp.putWordsInSentence = function() {
 
         //concatenate new word to ongoing generated string
         torontoIpsumApp.generatedString = torontoIpsumApp.generatedString + ` ` + wordToAdd;
-        //If last word in a sentence add a period
+        //If last word in a sentence add random punctuation mark
         if (i === randNumWords - 1) {
-            torontoIpsumApp.generatedString = torontoIpsumApp.generatedString + `.`;
+            const punct = this.punctuation[this.randomNumRange(0, this.punctuation.length)];
+            this.generatedString = this.generatedString + punct;
         }
     }
 };
