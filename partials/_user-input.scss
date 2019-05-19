@@ -22,9 +22,12 @@ h2 {
     height: 100%;
     
 }
+
+//drop down selector styles
 .selectors {
     width: 100%;
     text-align:center;
+    align-self: flex-end;
 }
 
 select { 
@@ -33,46 +36,48 @@ select {
     height: 4.5vh;
 }
 
-output {
-    margin-top: 15px;
-}
-
-button {
-    width: 45%;
-    border-radius: $round-borders;
-    padding: 25px 0;
-    margin: 50px auto 0 auto;
-    display: block;
-    border: 2px $highlightBlue solid;
-    background-color: $shadowBlue; 
-    color: $highlightBlue;
-    transition: 0.25s;
-}
-
-button:hover {
-    background-color: $highlightBlue;
-    border: 2px $shadowBlue solid;
-    color: $shadowBlue;
-}
-
-button:active {
-    background-color: $midtoneBlue; 
-    color: $highlightBlue;
-    border: 2px $highlightBlue solid;
-}
-
 label {
     margin-right: 10px;
-    color: $greyBlue;
+    color: $highlightBlue;
 }
 
 .selector-area {
-    padding: 10px 0;
-    margin-top: 20px;
-    background-color: rgba(239,246,255, 0.75);
-    border-radius: $round-borders;
-    border: 1px solid $midtoneBlue;
+    margin-top: 30px;
 }
+
+//category checkbox styles
+//class visually-hidden seems to be bugged on firefox, so display none checkboxes to hide
+input[type=checkbox] {
+    display: none;
+}
+
+.categories label {
+    margin: 0 30px;
+    font-size: 1.5rem;
+    padding: 25px 20px;
+    @include button-style;
+}
+
+
+//button styles
+button {
+    width: 45%;
+    padding: 25px 0;
+    margin: 50px auto 0 auto;
+    display: block;
+    @include button-style;
+}
+
+button:hover,
+.categories label:hover {
+    @include button-hover;
+}
+
+button:active,
+.categories label:active {
+    @include button-active;
+}
+
 
 
 //----------------------------------------
@@ -89,6 +94,19 @@ label {
     //reduce font size for labels
     label {
         font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .categories {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .categories label {
+        margin: 10px 0;
     }
 }
 
@@ -115,9 +133,17 @@ label {
     select {
         width: 50%;
     }
+
+    .categories label {
+        font-size: 1rem;
+    }
+
+    button {
+        margin: 10px auto 0 auto;
+    }
 }
 
-@media (max-width: 475px) {
+@media (max-width: 475px) { 
     h2 {
         font-size: 1.25rem;
         margin: 10px auto 0 auto;
@@ -128,6 +154,25 @@ label {
     }
 
     form {
-        padding: 5vh 0;
+        padding: 3vh 0;
+    }
+
+    .categories label {
+        font-size: 0.75rem;
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    form {
+        padding: 0;
+    }
+
+    .categories label {
+        padding: 17px 15px;
+    }
+
+    button {
+        padding: 20px 0;
     }
 }

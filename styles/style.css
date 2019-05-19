@@ -248,7 +248,7 @@ h1 {
 .start-page {
   background-image: url("../assets/city-hall-night.jpg");
   background-size: cover;
-  background-position: center center;
+  background-position: center 65%;
   background-repeat: none;
   height: 100vh;
 }
@@ -295,9 +295,6 @@ h1 {
   h1 {
     font-size: 2.25rem;
   }
-  .inner-wrapper {
-    width: 90%;
-  }
   .start-page .inner-wrapper {
     padding: 2.5vh 0;
   }
@@ -306,6 +303,9 @@ h1 {
 @media (max-width: 400px) {
   h1 {
     font-size: 2rem;
+  }
+  .start-page-content-box {
+    padding: 10px 2%;
   }
 }
 
@@ -348,6 +348,8 @@ h2 {
 .selectors {
   width: 100%;
   text-align: center;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 select {
@@ -356,16 +358,24 @@ select {
   height: 4.5vh;
 }
 
-output {
-  margin-top: 15px;
+label {
+  margin-right: 10px;
+  color: #eff6ff;
 }
 
-button {
-  width: 45%;
+.selector-area {
+  margin-top: 30px;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+.categories label {
+  margin: 0 30px;
+  font-size: 1.5rem;
+  padding: 25px 20px;
   border-radius: 20px;
-  padding: 25px 0;
-  margin: 50px auto 0 auto;
-  display: block;
   border: 2px #eff6ff solid;
   background-color: #214C80;
   color: #eff6ff;
@@ -373,29 +383,31 @@ button {
   transition: 0.25s;
 }
 
-button:hover {
+button {
+  width: 45%;
+  padding: 25px 0;
+  margin: 50px auto 0 auto;
+  display: block;
+  border-radius: 20px;
+  border: 2px #eff6ff solid;
+  background-color: #214C80;
+  color: #eff6ff;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+button:hover,
+.categories label:hover {
   background-color: #eff6ff;
   border: 2px #214C80 solid;
   color: #214C80;
 }
 
-button:active {
+button:active,
+.categories label:active {
   background-color: #4297FF;
   color: #eff6ff;
   border: 2px #eff6ff solid;
-}
-
-label {
-  margin-right: 10px;
-  color: #232e3a;
-}
-
-.selector-area {
-  padding: 10px 0;
-  margin-top: 20px;
-  background-color: rgba(239, 246, 255, 0.75);
-  border-radius: 20px;
-  border: 1px solid #4297FF;
 }
 
 @media (max-width: 950px) {
@@ -405,6 +417,24 @@ label {
   }
   label {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .categories {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .categories label {
+    margin: 10px 0;
   }
 }
 
@@ -433,6 +463,12 @@ label {
   select {
     width: 50%;
   }
+  .categories label {
+    font-size: 1rem;
+  }
+  button {
+    margin: 10px auto 0 auto;
+  }
 }
 
 @media (max-width: 475px) {
@@ -444,7 +480,23 @@ label {
     margin-top: 10px;
   }
   form {
-    padding: 5vh 0;
+    padding: 3vh 0;
+  }
+  .categories label {
+    font-size: 0.75rem;
+    padding: 20px 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  form {
+    padding: 0;
+  }
+  .categories label {
+    padding: 17px 15px;
+  }
+  button {
+    padding: 20px 0;
   }
 }
 
@@ -469,6 +521,10 @@ section.bottom-section {
 .generated-output h2,
 .generated-output p {
   color: #eff6ff;
+}
+
+h2.scroll-down-notification {
+  margin: 0 auto;
 }
 
 @media (max-width: 500px) {

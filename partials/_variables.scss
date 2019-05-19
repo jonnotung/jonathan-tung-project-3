@@ -7,9 +7,33 @@ $highlightBlue: #eff6ff;
 $midtoneBlue: #4297FF;
 $greyBlue: #232e3a;
 $midShadowBlue: #3579CC;
-$accentOrange: #f71a0e;
 
 //-------------------------
 //------border styles------
 //-------------------------
 $round-borders: 20px;
+
+
+//------------------------
+//--------mixins----------
+//------------------------
+
+@mixin button-style {
+    border-radius: $round-borders;
+    border: 2px $highlightBlue solid;
+    background-color: $shadowBlue; 
+    color: $highlightBlue;
+    transition: 0.25s;
+}
+
+@mixin button-hover {
+    background-color: $highlightBlue;
+    border: 2px $shadowBlue solid;
+    color: $shadowBlue;
+}
+
+@mixin button-active {
+    background-color: $midtoneBlue; 
+    color: $highlightBlue;
+    border: 2px $highlightBlue solid;
+}
