@@ -7,17 +7,21 @@ section.bottom-section {
 }
 
 .generated-output {
-    padding: 75px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+//class that's dynamically added to generated content container so site starts off as 100vh
+.add-padding-when-generated {
+    padding: 75px 0;
 }
 
 .generated-output h2,
 .generated-output p {
     color: $highlightBlue;
 }
-
+ 
 h2.scroll-down-notification {
     margin: 0 auto;
 }

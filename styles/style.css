@@ -505,7 +505,6 @@ section.bottom-section {
 }
 
 .generated-output {
-  padding: 75px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -516,6 +515,10 @@ section.bottom-section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.add-padding-when-generated {
+  padding: 75px 0;
 }
 
 .generated-output h2,

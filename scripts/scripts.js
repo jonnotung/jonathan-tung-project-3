@@ -157,14 +157,15 @@ torontoIpsumApp.generateText = function() {
         //disable default behviour
         event.preventDefault();
 
+        //build word library based on categories user has selected
         torontoIpsumApp.buildWordLibrary();
 
-        //capture number of sentences user wants from paragraphSize slider
+        //capture number of sentences user wants 
         torontoIpsumApp.numOfSentences = torontoIpsumApp.$paragraphSizeSelector.val();
-        //capture number of paragraphs user wants from slider input
+        //capture number of paragraphs user wants 
         const numOfParas = torontoIpsumApp.$numParaSelector.val();
 
-        //getrandom index of word library, store as attribute in namespace object for easy access
+        //get random index of word library, store as attribute in namespace object for easy access
         torontoIpsumApp.randomIndex = torontoIpsumApp.randomNumRange(0, torontoIpsumApp.wordLibrary.length);
 
         //start building the paragraphs we want to output
@@ -175,6 +176,8 @@ torontoIpsumApp.generateText = function() {
         //add generated string to output section
         torontoIpsumApp.$generatedOutput.append(`<h2>Yo fam here's your text</h2>`);
         torontoIpsumApp.$generatedOutput.append(torontoIpsumApp.generatedString);
+        //add class of add-padding-when-generated to output div to add padding
+        torontoIpsumApp.$generatedOutput.addClass(`add-padding-when-generated`);
         
         //Add notification text for user to scroll down at bottom of starting screen
         $(`.scroll-down-notification`).hide().text(`Scroll down for your text!`).fadeIn();
