@@ -6,12 +6,14 @@ const torontoIpsumApp = {};
 //------------------------------------------------
 //-------define word library to draw from---------
 //------------------------------------------------
-//base words, always there
-torontoIpsumApp.wordLibraryBase = [`Finch`, `North York Center`, `Sheppard`, `York Mills`, `Lawrence`, `Eglinton`, `Davisville`, `St Clair`, `Summerhill`, `Rosedale`, `Bloor`, `Wellesley`, `College`, `Dundas`, `Queen`, `King`, `Union`, `St Andrew`, `Osgoode`, `St Patrick`, `Museum`, `St George`, `Spadina`, `Dupont`, `Glencairn`, `Yorkdale`, `Wilson`, `Downsview`, `Kipling`, `Islington`, `Royal York`, `Old Mill`, `Jane`, `Runnymede`, `High Park`, `Keele`, `Lansdowne`, `Dufferin`, `Ossington`, `Christie`, `Bathurst`, `Bay`, `Sherbourne`, `Castle Frank`, `Broadview`, `Chester`, `Pape`, `Donlands`, `Greenwood`, `Coxwell`, `Woodbine`, `Main Street`, `Victoria Park`, `Warden`, `Kennedy`, `Ellesmere`, `Midland`, `STC`, `Bayview`, `Bessarion`, `Leslie`, `Don Mills`, `McCowan`, `CN tower`, `Steamwhistle brewery`, `Queens quay`, `Wonderland`, `Ontario place`, `CNE`, `Cabbagetown`, `Corktown`, `Leslieville`, `The beaches`, `Sunnyside`, `Junction`, `Annex`, `Koreatown`, `North York`, `Etobicoke`, `Scarborough`, `East York`, `Toronto`, `Ward's Island`, `Center Island`, `Centerville`, `Olympic Island`, `Riverdale`, `Kensington Market`, `Chinatown`, `Guildwood`, `Harbourfront`, `Queensway`, `Richview`, `Ledbury Park`, `Graydon Hall`, `Riverside`, `Woodbridge`, `Christie pits`, `Allan Gardens`, `Casa Loma`, `Baldwin village`, `Bloorcourt`, `Leaside`, `Bloordale`, `Brockton`, `Church Wellsely Village`, `Cityplace`, `Little Italy`, `Little Portugal`, `Greektown`, `Danforth`, `Davenport`, `Distillery District`, `Dovercourt`, `East Chinatown`, `Forest Hill`, `Harbord Village`, `Keelesdale`, `King East`, `King West`, `Liberty Village`, `Little India`, `Little Tokyo`, `Markham`, `Mississauga`, `Moss Park`, `Mount Pleasant`, `Oakwood Village`, `Port Lands`, `Regent Park`, `Richmond Hill`, `Roncesvalles`, `St James Town`, `St Lawrence Market`, `Stockyards`, `Thorncliffe park`, `Thornhill`, `Vaughn`, `Weston`, `Woodbridge`, `Yorkville`, `Yonge`, `U of T`, `Ryerson`, `York`, `Humber`, `Centennial`, `George Brown`, `Seneca`, `Drake`, `Massey Hall`, `Roy Thompson Hall`, `The Weeknd`, `Jully Black`, `Peaches`, `Deborah Cox`, `Broken Social Scene`, `Feist`, `Metric`, `Lee's Palace`, `Scott Pilgrim`, `The phoenix`, `Horseshoe tavern`, `Will Arnett`, `Catherine O'hara`, `Howie Mandel`, `Mike Myers`, `Christopher Plummer`, `Neil Young`, `John Candy`, `David Cronenberg`, `Rick Moranis`, `Sarah Polley`, `Katheryn Winnick`];
+//base words, always there. 187 words
+torontoIpsumApp.wordLibraryBase = [`Finch`, `North York Center`, `Sheppard`, `York Mills`, `Lawrence`, `Eglinton`, `Davisville`, `St Clair`, `Summerhill`, `Rosedale`, `Bloor`, `Wellesley`, `College`, `Dundas`, `Queen`, `King`, `Union`, `St Andrew`, `Osgoode`, `St Patrick`, `Museum`, `St George`, `Spadina`, `Dupont`, `Glencairn`, `Yorkdale`, `Wilson`, `Downsview`, `Kipling`, `Islington`, `Royal York`, `Old Mill`, `Jane`, `Runnymede`, `High Park`, `Keele`, `Lansdowne`, `Dufferin`, `Ossington`, `Christie`, `Bathurst`, `Bay`, `Sherbourne`, `Castle Frank`, `Broadview`, `Chester`, `Pape`, `Donlands`, `Greenwood`, `Coxwell`, `Woodbine`, `Main Street`, `Victoria Park`, `Warden`, `Kennedy`, `Ellesmere`, `Midland`, `STC`, `Bayview`, `Bessarion`, `Leslie`, `Don Mills`, `McCowan`, `CN tower`, `Steamwhistle brewery`, `Queens quay`, `Wonderland`, `Ontario place`, `CNE`, `Cabbagetown`, `Corktown`, `Leslieville`, `The beaches`, `Sunnyside`, `Junction`, `Annex`, `Koreatown`, `North York`, `Etobicoke`, `Scarborough`, `East York`, `Toronto`, `Ward's Island`, `Center Island`, `Centerville`, `Olympic Island`, `Riverdale`, `Kensington Market`, `Chinatown`, `Guildwood`, `Harbourfront`, `Queensway`, `Richview`, `Ledbury Park`, `Graydon Hall`, `Riverside`, `Woodbridge`, `Christie pits`, `Allan Gardens`, `Casa Loma`, `Baldwin village`, `Bloorcourt`, `Leaside`, `Bloordale`, `Brockton`, `Church Wellsely Village`, `Cityplace`, `Little Italy`, `Little Portugal`, `Greektown`, `Danforth`, `Davenport`, `Distillery District`, `Dovercourt`, `East Chinatown`, `Forest Hill`, `Harbord Village`, `Keelesdale`, `King East`, `King West`, `Liberty Village`, `Little India`, `Little Tokyo`, `Markham`, `Mississauga`, `Moss Park`, `Mount Pleasant`, `Oakwood Village`, `Port Lands`, `Regent Park`, `Richmond Hill`, `Roncesvalles`, `St James Town`, `St Lawrence Market`, `Stockyards`, `Thorncliffe park`, `Thornhill`, `Vaughn`, `Weston`, `Woodbridge`, `Yorkville`, `Yonge`, `U of T`, `Ryerson`, `York`, `Humber`, `Centennial`, `George Brown`, `Seneca`, `Drake`, `Massey Hall`, `Roy Thompson Hall`, `The Weeknd`, `Jully Black`, `Peaches`, `Deborah Cox`, `Broken Social Scene`, `Feist`, `Metric`, `Lee's Palace`, `Scott Pilgrim`, `The phoenix`, `Horseshoe tavern`, `Will Arnett`, `Catherine O'hara`, `Howie Mandel`, `Mike Myers`, `Christopher Plummer`, `Neil Young`, `John Candy`, `David Cronenberg`, `Rick Moranis`, `Sarah Polley`, `Katheryn Winnick`, `MSTRKRFT`, `Our Lady Peace`, `Snow`, `Lights`, `Alvvays`, `Owen Pallett`, `Kardinal Offishall`, `Maestro`, `Death from above`, `k-os`, `Blue Rodeo`, `Choclair`, `Rush`];
 
 //optional categories that can be added
+//26 words
 torontoIpsumApp.sportsWords = [`Skydome`, `Blue Jays`, `Rogers center`, `Joe Carter`, `Roberto Alomar`, `Jose Bautista`, `Carlos Delgado`, `Roy Halladay`, `ACC`, `Vince Carter`, `Curtis Joseph` ,`DeMar DeRozan`, `Kyle Lowry`, `Kawhi Leonard`, `Maple Leaf Gardens`, `Mats Sundin`, `Darryl Sittler`, `Doug Gilmour`, `Borje Salming`, `Wendel Clark`, `Penny Oleksiak`, `Rosie Maclennan`, `Michelle Williams`, `Silken Laumann`, `Heather Moyse`, `Phylicia George`];
 
+//49 words
 torontoIpsumApp.slangWords = [`Trash panda`, `wasteman`, `bless`, `amped`, `ahlie`, `come thru`, `cyattie`, `deafaz`, `differently`, `fam`, `fom`, `greezy`, `merked`, `lowe`, `lowkey`, `nice`, `regulate`, `snake`, `styll`, `blem`, `beat`, `cheesed`, `extra`, `gassed`, `lit`, `sus`, `ting`, `sweetersman`, `preeing`, `tun up`, `top left`, `szeen`, `sav`,`marved`, `mossin`, `gheez`, `bout it`, `arms`, `waste yute`, `make moves`, `nize it`, `yutes`, `the 6ix`, `905`, `416`, `flex`, `cop`, `scoop`, `sauga`];
 
 //wordLibrary gets build dynamically when generate button is hit
@@ -19,23 +21,18 @@ torontoIpsumApp.wordLibrary = [];
 
 //punctuation library. More periods to make them more common
 torontoIpsumApp.punctuation = [`.`, `.`, `.`, `?`, `!` ];
-//----------------------------------------
-//---------jquery DOM references----------
-//----------------------------------------
-torontoIpsumApp.$paragraphSizeSelector = $(`#paragraph-size`);
-torontoIpsumApp.$numParaSelector = $(`#paragraph-num`);
-torontoIpsumApp.$generatedOutput = $(`.generated-output`);
 
 //--------------------------------------------
 //-------------variables----------------------
 //--------------------------------------------
 
-//store number of sentences per paragraph in object, instead of passing it constantly as an argument
+//store number of sentences per paragraph in torontoIpsumApp object, instead of passing it constantly as an argument
 torontoIpsumApp.numOfSentences;
 torontoIpsumApp.minWordsPerSent = 3;
 torontoIpsumApp.maxWordsPerSent = 7;
 torontoIpsumApp.generatedString = ``;
-//store past/current randomIndex in object, instead of constantly passing it as an argument
+
+//store past/current randomIndex in object, instead of constantly passing it as an argument. used to prevent same word from being picked back to back
 torontoIpsumApp.randomIndex;
 
 //-----------------------------------------------------------
@@ -55,7 +52,7 @@ torontoIpsumApp.randomNumRange = function(min, max) {
 };
 
 //returns a random word from the word library, 
-//if wordPosition = 0 capitalize it
+//if wordPosition = 0 capitalize it, otherwise returns as all lowercase
 torontoIpsumApp.randomWord = function(wordPosition) {
     //get a random index for word library that's different from randNum in object
     const randNum = this.noRepeatRandNum();
@@ -71,7 +68,7 @@ torontoIpsumApp.randomWord = function(wordPosition) {
     return newWord;
 }
 
-//returns a randomm number that is not the same as randomIndex in namespace object
+//returns a randomm number that is not the same as randomIndex in torontoIpsumApp object
 torontoIpsumApp.noRepeatRandNum = function() {
     //use let because we might reassign newRandomNum
     let newRandomNum = this.randomNumRange(0, this.wordLibrary.length);
@@ -82,7 +79,7 @@ torontoIpsumApp.noRepeatRandNum = function() {
     return newRandomNum;
 };
 
-//builds up sentences in generatedOutput string in namespace object
+//builds up sentences in generatedOutput string in torontoIpsumApp object
 //repeats randomWord() in a loop randomly between minWordsPerSent and maxWordsPerSent times 
 torontoIpsumApp.putWordsInSentence = function() {
     //generate 5 random words and concatenate them to make a sentence
@@ -103,7 +100,7 @@ torontoIpsumApp.putWordsInSentence = function() {
     }
 };
 
-//build up paragraph(s) in generatedOutput string in namespace object
+//build up paragraph(s) in generatedOutput string in torontoIpsumApp object
 //repeats putWordsInSentence() in a loop
 torontoIpsumApp.buildParagraph = function() {
     //create string we want to concatenate onto
@@ -143,10 +140,10 @@ torontoIpsumApp.buildWordLibrary = function() {
     //temporary array to store sports or slang words
     let tempCategories = [];
     //add appropriate categories
-    if( $(`#sports`).is(`:checked`)) {
+    if( torontoIpsumApp.$sportsCheck.is(`:checked`)) {
         tempCategories = tempCategories.concat(torontoIpsumApp.sportsWords);
     }
-    if( $(`#slang`).is(`:checked`)) {
+    if( torontoIpsumApp.$slangCheck.is(`:checked`)) {
         tempCategories = tempCategories.concat(torontoIpsumApp.slangWords);
     }
     torontoIpsumApp.wordLibrary = torontoIpsumApp.wordLibrary.concat(tempCategories);
@@ -210,19 +207,18 @@ torontoIpsumApp.checkBoxListener = function() {
     //if either checkbox status changes
     $(`input[type=checkbox]`).on(`change`, function(){
 
-        //change text in buttons to updated status depending on which boxes are checked
-        if( $(`#sports`).is(`:checked`)) {
-            $(`.sports-button`).text(`Sports Added`);
+        //change text in buttons to updated status depending on which category boxes are checked
+        if( torontoIpsumApp.$sportsCheck.is(`:checked`)) {
+            torontoIpsumApp.$sportsButton .text(`Sports Added`);
         } else {
-            $(`.sports-button`).text(`Add Sports`);
+            torontoIpsumApp.$sportsButton .text(`Add Sports`);
         }
 
-        if( $(`#slang`).is(`:checked`)) {
-            $(`.slang-button`).text(`Slang Added`);
+        if( torontoIpsumApp.$slangCheck.is(`:checked`)) {
+            torontoIpsumApp.$slangButton.text(`Slang Added`);
         } else {
-            $(`.slang-button`).text(`Add Slang`);
+            torontoIpsumApp.$slangButton.text(`Add Slang`);
         }
-
     });
 };
 
@@ -230,6 +226,17 @@ torontoIpsumApp.checkBoxListener = function() {
 //---------Init wrapper function-------------------------------------
 //-------------------------------------------------------------------
 torontoIpsumApp.init = function() {
+    //----------------------------------------
+    //---------jquery DOM references----------
+    //----------------------------------------
+    torontoIpsumApp.$paragraphSizeSelector = $(`#paragraph-size`);
+    torontoIpsumApp.$numParaSelector = $(`#paragraph-num`);
+    torontoIpsumApp.$generatedOutput = $(`.generated-output`);
+    torontoIpsumApp.$sportsCheck = $(`#sports`);
+    torontoIpsumApp.$sportsButton = $(`.sports-button`);
+    torontoIpsumApp.$slangCheck = $(`#slang`);
+    torontoIpsumApp.$slangButton = $(`.slang-button`);
+
     this.generateText();
     this.copyTextListener();
     torontoIpsumApp.checkBoxListener();

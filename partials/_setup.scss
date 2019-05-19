@@ -45,7 +45,7 @@ body {
 }
 
 h1, h2, button, label {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 h2 {
@@ -54,33 +54,6 @@ h2 {
 }
 
 p, select {
-    font-family: 'Karla', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+
 }
-
-//-------------------------------------------------------------------------------
-//----removing default styling on range slider inputs----------------------------
-//--------based on examples by Daniel Stren--------------------------------------
-//---https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/---
-//-------------------------------------------------------------------------------
-
-input[type=range] {
-    appearance: none; 
-    background: transparent;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-}
-
-input[type=range]:focus {
-    outline: none;
-}
-
-input[type=range]::-ms-track {
-    width: 100%;
-    cursor: pointer;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-}
-
