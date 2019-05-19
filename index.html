@@ -18,19 +18,26 @@
                     <section class="user-input">
                         <form>
                             <h2>Generate some placeholder text</h2>
-                                <div class="sliders">
-                                    <fieldset class="paragraph-size">
-                                        <label for="paragraph-size">
-                                            <span class="slider-value"></span> sentences per paragraph
-                                        </label>
-                                        <input name="para-size" type="range" min="5" max="15" step="5" value="5" id="paragraph-size">
-                                    </fieldset>
-                                    <fieldset class="paragraph-num">
-                                        <label for="paragraph-num">
-                                            <span class="num-paras-disp"></span> paragraph<span class="para-plural"></span>
-                                        </label>
-                                        <input name="para-num" type="range" min="1" max="5" step="1" value="1" id="paragraph-num">
-                                    </fieldset>
+                                <div class="selectors">
+                                    <!-- divs instead of fieldset because flexbox is bugged inside fieldsets for chrome -->
+                                    <div class="paragraph-size selector-area">
+                                        <label for="paragraph-size">Sentences per paragraph: </label>
+                                        <select name="paragraph-size" id="paragraph-size">
+                                            <option value="5">5 sentences</option>
+                                            <option value="10">10 sentences</option>
+                                            <option value="15">15 sentences</option>
+                                        </select>
+                                    </div>
+                                    <div class="paragraph-num selector-area">
+                                        <label for="paragraph-num">Paragraphs: </label>
+                                        <select name="paragraph-num" id="paragraph-num">
+                                            <option value="1">1 paragraph</option>
+                                            <option value="2">2 paragraphs</option>
+                                            <option value="3">3 paragraphs</option>
+                                            <option value="4">4 paragraphs</option>
+                                            <option value="5">5 paragraphs</option>
+                                        </select>
+                                    </div>
                                 </div>
                             <button class=".generate">Generate</button>
                         </form>

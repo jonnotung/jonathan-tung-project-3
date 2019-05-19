@@ -22,19 +22,16 @@ torontoIpsumApp.wordLibrary = [`Finch`, `North York Center`, `Sheppard`, `York M
 //----------------------------------------
 //---------jquery DOM references----------
 //----------------------------------------
-torontoIpsumApp.$paragraphSizeSlider = $(`#paragraph-size`);
-torontoIpsumApp.$numParaSlider = $(`#paragraph-num`);
-torontoIpsumApp.$sliderValueDisplay = $(`.slider-value`);
-torontoIpsumApp.$paraNumSliderDisplay = $(`.num-paras-disp`)
+torontoIpsumApp.$paragraphSizeSelector = $(`#paragraph-size`);
+torontoIpsumApp.$numParaSelector = $(`#paragraph-num`);
 torontoIpsumApp.$generatedOutput = $(`.generated-output`);
 
 
 //--------------------------------------------
 //-------------variables----------------------
 //--------------------------------------------
-//used in MVP, disused currently
-// torontoIpsumApp.wordsPerSentence = 5;
 
+//store number of sentences per paragraph in object, instead of passing it constantly as an argument
 torontoIpsumApp.numOfSentences;
 torontoIpsumApp.minWordsPerSent = 3;
 torontoIpsumApp.maxWordsPerSent = 7;
@@ -43,10 +40,11 @@ torontoIpsumApp.generatedString = ``;
 torontoIpsumApp.randomIndex;
 
 //-----------------------------------------------------------
-//---------Ye olde functions for doin thangs-----------------
+//---------Functions ----------------------------------------
 //-----------------------------------------------------------
 
 //returns argument string with only the first letter capitalized
+//based on example at: https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
  torontoIpsumApp.makeCapitalized = function(ourString){
     return ourString.charAt(0).toUpperCase() + ourString.slice(1).toLowerCase();
 };
@@ -138,31 +136,8 @@ torontoIpsumApp.multipleParagraphs = function(numParagraphs) {
 
 
 //-----------------------------------------------------------
-//---------Ye olde jquery event handlers---------------------
+//---------Jquery event handlers-----------------------------
 //-----------------------------------------------------------
-
-//event listener for when paragraph size slide input changes
-//display slider's value on page
-torontoIpsumApp.paraSizeListener = function() {
-        torontoIpsumApp.$paragraphSizeSlider.change(function () {
-            torontoIpsumApp.$sliderValueDisplay.text($(this).val());
-        });
-};
-
-//event listener for when paragraph size slide input changes
-//display slider's value on page
-torontoIpsumApp.numParaListener = function(){
-    torontoIpsumApp.$numParaSlider.change(function(){
-        const value = $(this).val();
-        torontoIpsumApp.$paraNumSliderDisplay.text(value);
-        //dynamically add the 's' at the end of 'paragraph'
-        if(value > 1) {
-            $(`.para-plural`).text(`s`);
-        } else {
-            $(`.para-plural`).empty();
-        }
-    });
-};
 
 //event listener for when generate button is clicked
 torontoIpsumApp.generateText = function() {
@@ -172,9 +147,9 @@ torontoIpsumApp.generateText = function() {
         event.preventDefault();
 
         //capture number of sentences user wants from paragraphSize slider
-        torontoIpsumApp.numOfSentences = torontoIpsumApp.$paragraphSizeSlider.val();
+        torontoIpsumApp.numOfSentences = torontoIpsumApp.$paragraphSizeSelector.val();
         //capture number of paragraphs user wants from slider input
-        const numOfParas = torontoIpsumApp.$numParaSlider.val();
+        const numOfParas = torontoIpsumApp.$numParaSelector.val();
 
         //getrandom index of word library, store as attribute in namespace object for easy access
         torontoIpsumApp.randomIndex = torontoIpsumApp.randomNumRange(0, torontoIpsumApp.wordLibrary.length);
@@ -202,22 +177,18 @@ torontoIpsumApp.copyTextListener = function() {
         $textToCopy.focus();
         $textToCopy.select();
         //copies the inner HTML to clipboard
+        //standard JS document.execComand('copy) doesn't work in event listeners, this is alternative
+        //compatible with chrome & firefox, unknown safari support, no support in IE/edge
         navigator.clipboard.writeText($textToCopy[0].innerHTML);
     });
 }
 
 //-------------------------------------------------------------------
-//---------Ye olde init wrapper function-----------------------------
+//---------Init wrapper function-------------------------------------
 //-------------------------------------------------------------------
 torontoIpsumApp.init = function() {
-    this.paraSizeListener();
     this.generateText();
-    this.numParaListener();
     this.copyTextListener();
-
-    //Display sliders starting value on page load/reload
-    torontoIpsumApp.$sliderValueDisplay.text(torontoIpsumApp.$paragraphSizeSlider.val());
-    torontoIpsumApp.$paraNumSliderDisplay.text(torontoIpsumApp.$numParaSlider.val());
 }
 
 
