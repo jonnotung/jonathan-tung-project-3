@@ -212,3 +212,16 @@ button:focus {
         font-size: 1.25rem;
     }
 }
+
+//for shorter screens
+@media (max-height: 700px) {
+    button {
+        font-size: 1.5rem;
+        padding: 20px 0;
+    }
+
+    .categories label {
+        font-size: 0.75rem;
+        padding: 20px 15px;
+    }
+}

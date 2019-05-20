@@ -510,6 +510,17 @@ button:focus {
   }
 }
 
+@media (max-height: 700px) {
+  button {
+    font-size: 1.5rem;
+    padding: 20px 0;
+  }
+  .categories label {
+    font-size: 0.75rem;
+    padding: 20px 15px;
+  }
+}
+
 section.bottom-section {
   background: #050a14;
 }
