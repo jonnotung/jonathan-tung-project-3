@@ -32,8 +32,8 @@ torontoIpsumApp.minWordsPerSent = 3;
 torontoIpsumApp.maxWordsPerSent = 7;
 torontoIpsumApp.generatedString = ``;
 
-//store past/current randomIndex in object, instead of constantly passing it as an argument. used to prevent same word from being picked back to back
-torontoIpsumApp.randomIndex;
+//set to store words (indexes) in current sentence to prevent repeats
+torontoIpsumApp.currentSentence = new Set();
 
 //-----------------------------------------------------------
 //---------Functions ----------------------------------------
@@ -72,12 +72,13 @@ torontoIpsumApp.randomWord = function(wordPosition) {
 torontoIpsumApp.noRepeatRandNum = function() {
     //use let because we might reassign newRandomNum
     let newRandomNum = this.randomNumRange(0, this.wordLibrary.length);
-    //while new random number is equal to randNum in object
-    while (newRandomNum === this.randomIndex) {
+
+    //check if newRandomNum has been seen in this sentenbce
+    while (this.currentSentence.has(newRandomNum)) {
         newRandomNum = this.randomNumRange(0, this.wordLibrary.length);
     }
-    //store new random number we just got for the next iteration
-    this.randomIndex = newRandomNum;
+    //remember we got this index in this sentence now
+    this.currentSentence.add(newRandomNum);
     return newRandomNum;
 };
 
@@ -87,6 +88,9 @@ torontoIpsumApp.putWordsInSentence = function() {
     //generate 5 random words and concatenate them to make a sentence
     //+1 to max since the range is not inclusive at the top end
     const randNumWords = this.randomNumRange(this.minWordsPerSent, this.maxWordsPerSent + 1);
+
+    //clear words (indexes) already seen, start of a new sentence
+    torontoIpsumApp.currentSentence.clear();
 
     for (let i = 0; i < randNumWords; i++) {
         //pick a new word that isn't the same as previous word
