@@ -409,6 +409,17 @@ button:focus {
   outline: 3px solid #eff6ff;
 }
 
+@media (max-height: 700px) {
+  button {
+    font-size: 1.5rem;
+    padding: 20px 0;
+  }
+  .categories label {
+    font-size: 0.75rem;
+    padding: 20px 15px;
+  }
+}
+
 @media (max-width: 950px) {
   h2 {
     font-size: 1.75rem;
@@ -507,17 +518,6 @@ button:focus {
   button {
     padding: 20px 0;
     font-size: 1.25rem;
-  }
-}
-
-@media (max-height: 700px) {
-  button {
-    font-size: 1.5rem;
-    padding: 20px 0;
-  }
-  .categories label {
-    font-size: 0.75rem;
-    padding: 20px 15px;
   }
 }
 
