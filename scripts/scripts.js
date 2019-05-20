@@ -56,7 +56,7 @@ torontoIpsumApp.randomNumRange = function(min, max) {
 torontoIpsumApp.randomWord = function(wordPosition) {
     //get a random index for word library that's different from randNum in object
     const randNum = this.noRepeatRandNum();
-    //use let because we're modifying the word based on where it is in a sentence
+
     let newWord = this.wordLibrary[randNum];
     
     //Capitalize word if it's first in sentence, otherwise lowercase
@@ -76,6 +76,8 @@ torontoIpsumApp.noRepeatRandNum = function() {
     while (newRandomNum === this.randomIndex) {
         newRandomNum = this.randomNumRange(0, this.wordLibrary.length);
     }
+    //store new random number we just got for the next iteration
+    this.randomIndex = newRandomNum;
     return newRandomNum;
 };
 
