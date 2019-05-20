@@ -50,10 +50,14 @@ label:focus {
 }
 
 .selector-area {
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 //category checkbox styles
+.categories {
+    margin-top: 20px;
+}
+
 //class visually-hidden seems to be bugged on firefox for checkboxes, so move checkboxes off the page to hide
 input[type=checkbox] {
     position:absolute;
@@ -125,13 +129,33 @@ button:focus {
 
     .categories label {
         margin: 10px 0;
+        font-size: 1rem;
+    }
+
+
+    button {
+        margin: 10px auto 0 auto;
+        font-size: 1.5rem;
+    }
+}
+
+
+@media (max-width: 700px) {
+    h2 {
+        font-size: 1.25rem;
+        margin: 10px auto 0 auto;
+    }
+
+    .selector-area {
+        margin-top: 25px;
     }
 }
 
 //realign some of the input fields
 @media (max-width: 600px) {
     button {
-        margin-top: 25px;
+        margin-top: 0px;
+        padding: 20px 0;
     }
 
     label {
@@ -146,6 +170,7 @@ button:focus {
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 15px;
     }
 
     select {
@@ -153,21 +178,12 @@ button:focus {
     }
 
     .categories label {
-        font-size: 1rem;
-    }
-
-    button {
-        margin: 10px auto 0 auto;
-        font-size: 1.5rem;
+        padding: 20px 15px;
     }
 }
 
 @media (max-width: 475px) { 
-    h2 {
-        font-size: 1.25rem;
-        margin: 10px auto 0 auto;
-    }
-
+    
     .selector-area {
         margin-top: 10px;
     }
