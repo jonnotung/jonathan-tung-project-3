@@ -19,7 +19,7 @@ torontoIpsumApp.slangWords = [`Trash panda`, `wasteman`, `bless`, `amped`, `ahli
 //wordLibrary that gets build dynamically based on user selection when generate button is hit
 torontoIpsumApp.wordLibrary = [];
 
-//punctuation library. More periods to make them more common. 4 - 1 - 1 ratio
+//punctuation library. More periods to make them more common. 4 - 1 - 1 
 torontoIpsumApp.punctuation = [`.`, `.`, `.`, `.`, `?`, `!` ];
 
 //--------------------------------------------
