@@ -79,7 +79,7 @@ input[type=checkbox]:focus + label {
 //button styles
 button {
     font-size: 2rem;
-    width: 45%;
+    width: 65%;
     padding: 25px 0;
     margin: 50px auto 0 auto;
     display: block;
@@ -109,12 +109,11 @@ button:focus {
 //for shorter screens
 @media (max-height: 700px) {
     button {
-        font-size: 1.5rem;
+        font-size: 2rem; 
         padding: 20px 0;
     }
 
     .categories label {
-        font-size: 0.75rem;
         padding: 20px 15px;
     }
 }
@@ -136,19 +135,19 @@ button:focus {
 @media (max-width: 800px) {
     .categories {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        justify-content: space-between;
+        width: 90%;
     }
 
     .categories label {
         margin: 10px 0;
-        font-size: 1rem;
+        // font-size: 1rem;
     }
 
 
     button {
         margin: 10px auto 0 auto;
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 }
 
@@ -161,6 +160,11 @@ button:focus {
 
     .selector-area {
         margin-top: 25px;
+    }
+
+    .categories {
+    
+        width: 100%;
     }
 }
 
@@ -206,7 +210,7 @@ button:focus {
     }
 
     .categories label {
-        font-size: 0.75rem;
+        font-size: 1.25rem;
         padding: 20px 15px;
     }
 }
@@ -217,12 +221,13 @@ button:focus {
     }
 
     .categories label {
+        font-size: 1.1rem;
         padding: 17px 15px;
     }
 
     button {
         padding: 20px 0;
-        font-size: 1.25rem;
+        // font-size: 1.25rem;
     }
 }
 
